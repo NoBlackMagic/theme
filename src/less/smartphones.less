@@ -1,0 +1,60 @@
+
+#side {
+	position: fixed;
+    top:0;
+    left:0;
+    
+    display:block;
+    width:100%;
+	height: @mobileSmallHandler;
+    overflow:hidden;
+    
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: height @sideTransition;
+    
+    .inner {
+        position: absolute;
+        top: @mobileSmallHandler;
+        display:block;
+        width:100%;
+    }
+    
+    &:after {
+        content: ' ';
+        position: fixed;
+        top:0;
+        right:0;
+        width: @mobileSmallHandler;
+        height: @mobileSmallHandler;
+        
+        background: red;
+    }
+    
+}
+
+.side-open {
+    
+    #side {
+        height: @mobileSmallHeight;
+        overflow: auto;
+        
+        .inner {
+            display:block;
+            height: @mobileSmallHeight - @mobileSmallHandler;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        &:after {
+            
+        }
+        
+    }
+    
+}
+
+
+
+#main {
+    margin-top: @mobileSmallHandler;
+}

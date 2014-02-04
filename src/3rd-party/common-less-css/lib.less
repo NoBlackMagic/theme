@@ -1,0 +1,59 @@
+.ie-opacity (@opacity: 0){
+    filter: alpha(opacity=@opacity);
+}
+
+.opacity (@opacity: 0) {
+    .ie-opacity(@opacity * 100);
+    opacity: @opacity;
+    -moz-opacity: @opacity;
+    -webkit-opacity: @opacity;
+}
+
+/* box decoration */
+
+.rounded-corners (@radius: 0) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+.custom-rounded-corners (@top-left: 0, @top-right: 0, @bottom-right: 0, @bottom-left: 0) {
+    border-radius: @top-left @top-right @bottom-right @bottom-left;
+    -moz-border-radius: @top-left @top-right @bottom-right @bottom-left;
+    -webkit-border-radius: @top-left @top-right @bottom-right @bottom-left;
+}
+
+.box-shadow (@h: 0, @v: 0, @blur: 0, @color: black) {
+    box-shadow: @h @v @blur @color;
+    -moz-box-shadow: @h @v @blur @color;
+    -webkit-box-shadow: @h @v @blur @color;
+}
+
+.inset-box-shadow (@h: 0, @v: 0, @blur: 0, @color: black) {
+    box-shadow: inset @h @v @blur @color;
+    -moz-box-shadow: inset @h @v @blur @color;
+    -webkit-box-shadow: inset @h @v @blur @color;
+}
+
+.box-sizing (@sizing: border-box) {
+    box-sizing: @sizing;
+    -moz-box-sizing: @sizing;
+    -webkit-box-sizing: @sizing;
+    -ms-box-sizing: @sizing;
+}
+
+/* text decoration */
+
+.text-blur (@blur: 0) {
+    text-shadow: 0 0 @blur;
+    -moz-text-shadow: 0 0 @blur;
+    -webkit-text-shadow: 0 0 @blur;
+}
+
+.text-shadow (@h: 0, @v: 0, @blur: 0, @color: black) {
+    text-shadow: @h @v @blur @color;
+    -moz-text-shadow: @h @v @blur @color;
+    -webkit-text-shadow: @h @v @blur @color;
+}
+
+
