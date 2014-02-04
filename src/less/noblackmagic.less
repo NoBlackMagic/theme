@@ -13,7 +13,7 @@
 // ----------------------------------------- //
 
 /**
- * Colors
+ * General
  */
 
 // global - main area
@@ -22,27 +22,42 @@
 // sidebar
 @sideBgColor: #666;
 
+@sideTransition: .6s ease;
+
 
 /**
- * Dimensions
+ * Smartphones
  */
 
-@smartphoneHeaderHeight: 48px;
-@smartphoneMenuHeight: 380px;
+@smartphoneHeaderHeight: 60px;
+@smartphoneMenuHeight: 300px;
+
+// handler size
+@smartphoneHandlerWidth: @smartphoneHeaderHeight - 20%;
+@smartphoneHandlerHeight: @smartphoneHandlerWidth;
+// horizontal / vertical margins
+@smartphoneHandlerHMargin: @smartphoneHeaderHeight / 2 - @smartphoneHandlerHeight / 2;
+@smartphoneHandlerVMargin: @smartphoneHandlerHMargin;
+
 @smartphoneHandlerBackground: red;
-@smartphoneActiveHandlerBackground: @smartphoneHandlerBackground;
-
-@mobileLargeSide: 250px;
-@mobileLargeSideHandler: 30px;
-
-@tabletLargeSide: @mobileLargeSide;
+@smartphoneHandlerABackground: @smartphoneHandlerBackground;
 
 
 /**
- * Other stuff
+ * Tablet
  */
 
-@sideTransition: .4s ease;
+@tabletSidebarWidth: @smartphoneMenuHeight;
+@tabletHandlerWidth: @smartphoneHandlerWidth;
+
+/**
+ * Desktop
+ */
+
+@desktopLargeSide: @tabletSidebarWidth;
+
+
+
 
 
 

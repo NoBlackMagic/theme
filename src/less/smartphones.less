@@ -1,4 +1,5 @@
 
+
 #side {
     position: fixed;
     top:-@smartphoneMenuHeight;
@@ -7,6 +8,8 @@
     display:block;
     width:100%;
 	height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
+    
+    -webkit-transition: all @sideTransition;
     
     .inner {
         position:relative;
@@ -32,21 +35,19 @@
             -webkit-overflow-scrolling: touch;
         }
         
-        &:after {
-            content: ' ';
-            position: absolute;
-            right:0;
-            bottom:0;
-            width: @smartphoneHeaderHeight;
-            height: @smartphoneHeaderHeight;
-            -webkit-transition: all @sideTransition; // some flickerings here
-            background: @smartphoneHandlerBackground;
-        }
-        
     }
-       
-    -webkit-transition: all @sideTransition;
     
+}
+
+#handler {
+    position: absolute;
+    right:@smartphoneHandlerHMargin;
+    bottom:0;
+    width: @smartphoneHandlerWidth;
+    height: @smartphoneHandlerHeight;
+    background: @smartphoneHandlerBackground;
+    -webkit-transform: translateY(-@smartphoneHandlerVMargin);
+    -webkit-transition: all @sideTransition;
 }
 
 #main {
@@ -78,20 +79,16 @@
             }
             
             nav {
-                top:@smartphoneHeaderHeight
+                top:@smartphoneHeaderHeight;
             }
             
-            &:after {
-                bottom:@smartphoneMenuHeight;
-                -webkit-transform: rotate(90deg);
-                background:@smartphoneActiveHandlerBackground;
-            }
         }
         
     }
     
-    #main {
-        margin-top: @smartphoneHeaderHeight + @smartphoneMenuHeight;
+    #handler {
+        -webkit-transform: rotate(90deg) translateX(-(@smartphoneMenuHeight + @smartphoneHandlerVMargin));
+        background:@smartphoneHandlerABackground;
     }
     
 }

@@ -2,59 +2,42 @@
 #side {
 	position:fixed;
     top:0;
-    left: -@mobileLargeSide;
+    left:0;
     display:block;
-    width:@mobileLargeSide;
+    width: @tabletSidebarWidth;
     
-    height: 100%;
+    height:100%;
     
+    -webkit-transform: translateX(-@tabletSidebarWidth);
+    -webkit-transition: all @sideTransition;
     
-    /*overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    */
-    
-    -webkit-transition: left @sideTransition;
-    
-    
-    &:after {
-        content: 'handler';
-        position: fixed;
-        top:0;
-        left:0;
+    .inner {
+        position:relative;
         display:block;
-        width: @mobileLargeSideHandler;
-        height: 100%;
-        background:red;
-        
-        -webkit-transition: left @sideTransition;
+        height:100%;
+        overflow:auto;
+        -webkit-overflow-scrolling: touch;
     }
+}
+
+#handler {
+    position: absolute;
+    top:0;
+    right:-@tabletHandlerWidth;
+    display:block;
+    width: @tabletHandlerWidth;
+    height: 100%;
+    background:red;
 }
 
 .side-open {
     
     #side {
-        left:0;
-        
-        &:after {
-            left:@mobileLargeSide;
-        }
-        
+        -webkit-transform: translateX(0);
     }
     
 }
-
 
 #main {
-    display:block;
-	margin-left: @mobileLargeSideHandler;
-    transition: margin @sideTransition;
-}
-
-.side-open {
-
-    #main {
-        min-width:100%;
-        margin-left: @mobileLargeSideHandler + @mobileLargeSide;
-    }
-    
+	margin-left: @tabletHandlerWidth;
 }

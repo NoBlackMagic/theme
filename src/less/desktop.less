@@ -1,14 +1,17 @@
 #side {
-    left:0;
+    -webkit-transform: translateX(0);
     transition: none;
-    width: @tabletLargeSide;
+    width: @desktopLargeSide;
     
     &:after {
         display:none;
-    }
-    
+    }   
+}
+
+#handler {
+    display:none;
 }
 
 #main {
-    margin-left: @tabletLargeSide;
+    margin-left: @desktopLargeSide;
 }
