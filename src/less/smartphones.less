@@ -1,60 +1,101 @@
 
 #side {
-	position: fixed;
-    top:0;
+    position: fixed;
+    top:-@smartphoneMenuHeight;
     left:0;
     
     display:block;
     width:100%;
-	height: @mobileSmallHandler;
-    overflow:hidden;
-    
-    -webkit-transform: translate3d(0, 0, 0);
-    -webkit-transition: height @sideTransition;
+	height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
     
     .inner {
-        position: absolute;
-        top: @mobileSmallHandler;
-        display:block;
-        width:100%;
-    }
+        position:relative;
+        height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
     
-    &:after {
-        content: ' ';
-        position: fixed;
-        top:0;
-        right:0;
-        width: @mobileSmallHandler;
-        height: @mobileSmallHandler;
-        
-        background: red;
-    }
-    
-}
-
-.side-open {
-    
-    #side {
-        height: @mobileSmallHeight;
-        overflow: auto;
-        
-        .inner {
+        header {
+            position:absolute;
+            top:@smartphoneMenuHeight;
+            left:0;
             display:block;
-            height: @mobileSmallHeight - @mobileSmallHandler;
-            overflow: auto;
+            width:100%;
+            height: @smartphoneHeaderHeight;
+            overflow:hidden;
+        }
+        
+        nav {
+            position:absolute;
+            top:0;
+            display:block;
+            width:100%;
+            height: @smartphoneMenuHeight;
+            overflow:auto;
             -webkit-overflow-scrolling: touch;
         }
         
         &:after {
-            
+            content: ' ';
+            position: absolute;
+            right:0;
+            bottom:0;
+            width: @smartphoneHeaderHeight;
+            height: @smartphoneHeaderHeight;
+            //-webkit-transition: all @sideTransition; // some flickerings here
+            background: @smartphoneHandlerBackground;
         }
         
+    }
+       
+    -webkit-transition: all @sideTransition;
+    
+}
+
+#main {
+    margin-top: @smartphoneHeaderHeight;
+    -webkit-transition: all @sideTransition;
+}
+
+
+
+
+
+
+
+/**
+ * Both menu and content slides down when menu extends.
+ * menu's header and nav invert their positions
+ */
+
+.side-open {
+    
+    #side {
+        
+        -webkit-transform: translateY(@smartphoneMenuHeight);
+        
+        .inner {
+            
+            header {
+                top:0;
+            }
+            
+            nav {
+                top:@smartphoneHeaderHeight
+            }
+            
+            &:after {
+                bottom:@smartphoneMenuHeight;
+                -webkit-transform: rotate(90deg);
+                background:@smartphoneActiveHandlerBackground;
+            }
+        }
+        
+    }
+    
+    #main {
+        margin-top: @smartphoneHeaderHeight + @smartphoneMenuHeight;
     }
     
 }
 
 
 
-#main {
-    margin-top: @mobileSmallHandler;
-}
+
