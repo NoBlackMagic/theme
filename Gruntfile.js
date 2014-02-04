@@ -16,20 +16,20 @@ module.exports = function (grunt) {
 		
 		clean: {
 			less: [
-				'src/css/theme-vicenza.css',
-				'src/css/theme-vicenza.css.map'
+				'src/css/noblackmagic.css',
+				'src/css/noblackmagic.css.map'
 			]
 		},
 		
 		less: {
 			options: {
 				sourceMap: true,
-				sourceMapFilename: 'src/css/theme-vicenza.css.map',
+				sourceMapFilename: 'src/css/noblackmagic.css.map',
 				sourceMapBasepath: 'src/css'
 			},
 			dev: {
 				files: {
-					'src/css/theme-vicenza.css' : ['src/less/theme-vicenza.less']
+					'src/css/noblackmagic.css' : ['src/less/noblackmagic.less']
 				}
 			}
 		},
