@@ -1,10 +1,8 @@
 /**
- * ThemeVicenza
+ * NoBlackMagic
  * mobile first responsive theme
  */
 
-// HTML5 Reset
-@import "../3rd-party/common-less-css/html5-reset";
 
 
 
@@ -16,13 +14,17 @@
  * General
  */
 
+@breakpointSmartphones: 320px; 
+@breakpointTablet: 480px; 
+@breakpointDesktop: 1024px; 
+
 // global - main area
 @bgColor: #fff;
 
 // sidebar
 @sideBgColor: #666;
 
-@sideTransition: .6s ease;
+@sideTransition: .25s ease-in-out;
 
 
 /**
@@ -30,7 +32,7 @@
  */
 
 @smartphoneHeaderHeight: 60px;
-@smartphoneMenuHeight: 300px;
+@smartphoneMenuHeight: 250px;
 
 // handler size
 @smartphoneHandlerWidth: @smartphoneHeaderHeight - 20%;
@@ -50,6 +52,7 @@
 @tabletSidebarWidth: @smartphoneMenuHeight;
 @tabletHandlerWidth: @smartphoneHandlerWidth;
 
+
 /**
  * Desktop
  */
@@ -63,36 +66,27 @@
 
 
 
-
-
-
-
-
-html, body {
-    width: 100%;
-	height: 100%;
-    background: @bgColor;
-}
-
 // --------------------------- //
 // ---[[   M O B I L E   ]]--- //
 // --------------------------- //
+
+@import "./bootstrap.less";
 
 /* old old old */
 @import "small";
 
 /* smartphones portrait */
-@media screen and (min-width: 320px) and (max-width: 479px) {
+@media screen and (min-width: @breakpointSmartphones) and (max-width: (@breakpointTablet - 1)) {
     @import "smartphones";
 }
 
 /* smartphones landscape, tablet portrait */
-@media screen and (min-width: 480px) {
+@media screen and (min-width: @breakpointTablet) and (max-width: (@breakpointDesktop - 1)) {
     @import "tablet";
 }
 
 /* tablet portrait, desktop */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: @breakpointDesktop) {
     @import "desktop";    
 }
 

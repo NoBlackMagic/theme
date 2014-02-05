@@ -11,32 +11,31 @@
     
     -webkit-transition: all @sideTransition;
     
-    .inner {
-        position:relative;
-        height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
-    
-        header {
-            position:absolute;
-            top:@smartphoneMenuHeight;
-            left:0;
-            display:block;
-            width:100%;
-            height: @smartphoneHeaderHeight;
-            overflow:hidden;
-        }
-        
-        nav {
-            position:absolute;
-            top:0;
-            display:block;
-            width:100%;
-            height: @smartphoneMenuHeight;
-            overflow:auto;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-    }
-    
+}
+
+#sidein {
+    position:relative;
+    height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
+}
+
+#sidehd {
+    position:absolute;
+    top:@smartphoneMenuHeight;
+    left:0;
+    display:block;
+    width:100%;
+    height: @smartphoneHeaderHeight;
+    overflow:hidden;
+}
+
+#sidecn {
+    position:absolute;
+    top:0;
+    display:block;
+    width:100%;
+    height: @smartphoneMenuHeight;
+    overflow:auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 #handler {
@@ -69,21 +68,15 @@
 .side-open {
     
     #side {
-        
-        -webkit-transform: translateY(@smartphoneMenuHeight);
-        
-        .inner {
-            
-            header {
-                top:0;
-            }
-            
-            nav {
-                top:@smartphoneHeaderHeight;
-            }
-            
-        }
-        
+        -webkit-transform: translateY(@smartphoneMenuHeight);        
+    }
+
+    #sidehd {
+        top:0;
+    }
+    
+    #sidecn {
+        top:@smartphoneHeaderHeight;
     }
     
     #handler {
