@@ -9,7 +9,10 @@
     height:100%;
     
     -webkit-transform: translateX(-@tabletSidebarWidth);
+    -moz-transform: translateX(-@tabletSidebarWidth);
+    
     -webkit-transition: all @sideTransition;
+    -moz-transition: all @sideTransition;
     
 }
 
@@ -19,7 +22,9 @@
     height:100%;
     margin: @tabletMenuVMargin @tabletMenuHMargin;
     overflow:auto;
+    
     -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
 }
 
 #handler {
@@ -41,6 +46,7 @@
     
     #side {
         -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
     }
     
     #handler {

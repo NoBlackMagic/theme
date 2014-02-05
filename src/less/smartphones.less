@@ -10,6 +10,7 @@
 	height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
     
     -webkit-transition: all @sideTransition;
+    -moz-transition: all @sideTransition;
     
 }
 
@@ -36,7 +37,9 @@
     height: @smartphoneMenuHeight - @smartphoneMenuVMargin * 2;
     margin: @smartphoneMenuVMargin @smartphoneMenuHMargin;
     overflow:auto;
+    
     -webkit-overflow-scrolling: touch;
+    -moz-overflow-scrolling: touch;
 }
 
 #handler {
@@ -46,14 +49,20 @@
     width: @smartphoneHandlerWidth;
     height: @smartphoneHandlerHeight;
     background: @smartphoneHandlerBackground;
+    
     -webkit-transform: translateY(-@smartphoneHandlerVMargin);
+    -moz-transform: translateY(-@smartphoneHandlerVMargin);
+    
     -webkit-transition: all @sideTransition;
+    -moz-transition: all @sideTransition;
 }
 
 #main {
-    -webkit-transition: all @sideTransition;
     margin: @smartphoneMainVMargin @smartphoneMainHMargin;
     margin-top: @smartphoneHeaderHeight + @smartphoneMainVMargin;
+    
+    -webkit-transition: all @sideTransition;
+    -moz-transition: all @sideTransition;
 }
 
 
@@ -71,6 +80,7 @@
     
     #side {
         -webkit-transform: translateY(@smartphoneMenuHeight);        
+        -moz-transform: translateY(@smartphoneMenuHeight);        
     }
 
     #sidehd {
@@ -82,8 +92,10 @@
     }
     
     #handler {
-        -webkit-transform: rotate(90deg) translateX(-(@smartphoneMenuHeight + @smartphoneHandlerVMargin));
         background:@smartphoneHandlerABackground;
+        
+        -webkit-transform: rotate(90deg) translateX(-(@smartphoneMenuHeight + @smartphoneHandlerVMargin));
+        -moz-transform: rotate(90deg) translateX(-(@smartphoneMenuHeight + @smartphoneHandlerVMargin));
     }
     
 }
