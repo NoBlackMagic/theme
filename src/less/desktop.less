@@ -3,7 +3,7 @@
     top:0;
     left:0;
     display:block;
-    width: @desktopLargeSide;
+    width: @desktopSidebarWidth;
     height:100%;
 }
 
@@ -11,18 +11,16 @@
     position:relative;
     display:block;
     height:100%;
+    margin: @desktopMenuVMargin @desktopMenuHMargin;
     overflow:auto;
     -webkit-overflow-scrolling: touch;
 }
-
-#sidehd {}
-
-#sidecn {}
 
 #handler {
     display:none;
 }
 
 #main {
-    margin-left: @desktopLargeSide;
+    margin: @desktopMainVMargin @desktopMainHMargin;
+    margin-left: @desktopSidebarWidth + @desktopMainHMargin;
 }

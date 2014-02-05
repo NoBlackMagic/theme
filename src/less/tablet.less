@@ -17,6 +17,7 @@
     position:relative;
     display:block;
     height:100%;
+    margin: @tabletMenuVMargin @tabletMenuHMargin;
     overflow:auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -28,7 +29,12 @@
     display:block;
     width: @tabletHandlerWidth;
     height: 100%;
-    background:red;
+    background: @tabletHandlerBackground;
+}
+
+#main {
+    margin: @tabletMainVMargin @tabletMainHMargin;
+    margin-left: @tabletHandlerWidth + @tabletMainHMargin;
 }
 
 .side-open {
@@ -37,8 +43,8 @@
         -webkit-transform: translateX(0);
     }
     
-}
-
-#main {
-	margin-left: @tabletHandlerWidth;
+    #handler {
+        background:@tabletHandlerABackground;
+    }
+    
 }

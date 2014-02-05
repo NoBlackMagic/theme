@@ -22,7 +22,7 @@
 @bgColor: #fff;
 
 // sidebar
-@sideBgColor: #666;
+@sideBgColor: #eee;
 
 @sideTransition: .25s ease-in-out;
 
@@ -34,6 +34,9 @@
 @smartphoneHeaderHeight: 60px;
 @smartphoneMenuHeight: 250px;
 
+@smartphoneMenuHMargin: 0;
+@smartphoneMenuVMargin: 20px;
+
 // handler size
 @smartphoneHandlerWidth: @smartphoneHeaderHeight - 20%;
 @smartphoneHandlerHeight: @smartphoneHandlerWidth;
@@ -41,8 +44,11 @@
 @smartphoneHandlerHMargin: @smartphoneHeaderHeight / 2 - @smartphoneHandlerHeight / 2;
 @smartphoneHandlerVMargin: @smartphoneHandlerHMargin;
 
-@smartphoneHandlerBackground: red;
+@smartphoneHandlerBackground: #ddd;
 @smartphoneHandlerABackground: @smartphoneHandlerBackground;
+
+@smartphoneMainHMargin: @smartphoneMenuHMargin;
+@smartphoneMainVMargin: 20px;
 
 
 /**
@@ -52,12 +58,26 @@
 @tabletSidebarWidth: @smartphoneMenuHeight;
 @tabletHandlerWidth: @smartphoneHandlerWidth;
 
+@tabletMenuHMargin: @smartphoneMenuHMargin;
+@tabletMenuVMargin: @smartphoneMenuVMargin;
+
+@tabletHandlerBackground: @smartphoneHandlerBackground;
+@tabletHandlerABackground: @smartphoneHandlerBackground;
+
+@tabletMainHMargin: @smartphoneMainHMargin;
+@tabletMainVMargin: @smartphoneMainVMargin;
 
 /**
  * Desktop
  */
 
-@desktopLargeSide: @tabletSidebarWidth;
+@desktopSidebarWidth: @tabletSidebarWidth;
+
+@desktopMenuHMargin: @tabletMenuHMargin;
+@desktopMenuVMargin: @tabletMenuVMargin;
+
+@desktopMainHMargin: @tabletMainHMargin;
+@desktopMainVMargin: @tabletMainVMargin;
 
 
 
@@ -66,9 +86,9 @@
 
 
 
-// --------------------------- //
-// ---[[   M O B I L E   ]]--- //
-// --------------------------- //
+// ------------------------------------------- //
+// ---[[   I M P L E M E N T A T I O N   ]]--- //
+// ------------------------------------------- //
 
 @import "./bootstrap.less";
 
