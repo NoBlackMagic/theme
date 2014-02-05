@@ -19,5 +19,5 @@ HTML theme for the blog.
 - drop jQuery support
 - implement some flexbox in sidebar
 - [OK] firefox support
-- opera support
+- [OK] opera support
 - IE10+ support
