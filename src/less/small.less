@@ -1,8 +1,13 @@
+/**
+ * NoBlackMagic | Basic
+ */
 
 #side {
 	height: auto;
 	
 	background: @sideBgColor;
+	
+	-webkit-transform: translateZ(0); // fix mobile chrome initial position bug when content is already scrolled
 }
 
 #main {
