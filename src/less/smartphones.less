@@ -9,10 +9,7 @@
     width:100%;
 	height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
     
-    -webkit-transition: all @sideTransition;
-    -moz-transition: all @sideTransition;
-    -o-transition: all @sideTransition;
-    
+	.transition(all @sideTransition);
 }
 
 #sidein {
@@ -39,9 +36,7 @@
     margin: @smartphoneMenuVMargin @smartphoneMenuHMargin;
     overflow:auto;
     
-    -webkit-overflow-scrolling: touch;
-    -moz-overflow-scrolling: touch;
-    -o-overflow-scrolling: touch;
+    .touch-scrolling(touch);
 }
 
 #handler {
@@ -52,22 +47,13 @@
     height: @smartphoneHandlerHeight;
     background: @smartphoneHandlerBackground;
     
-    -webkit-transform: translateY(-@smartphoneHandlerVMargin);
-    -moz-transform: translateY(-@smartphoneHandlerVMargin);
-    -o-transform: translateY(-@smartphoneHandlerVMargin);
-    
-    -webkit-transition: all @sideTransition;
-    -moz-transition: all @sideTransition;
-    -o-transition: all @sideTransition;
+	.transition(all @sideTransition);
+	.translate(0, -@smartphoneHandlerVMargin);
 }
 
 #main {
     margin: @smartphoneMainVMargin @smartphoneMainHMargin;
     margin-top: @smartphoneHeaderHeight + @smartphoneMainVMargin;
-    
-    -webkit-transition: all @sideTransition;
-    -moz-transition: all @sideTransition;
-    -o-transition: all @sideTransition;
 }
 
 
@@ -84,9 +70,7 @@
 .side-open {
     
     #side {
-        -webkit-transform: translateY(@smartphoneMenuHeight);        
-        -moz-transform: translateY(@smartphoneMenuHeight);        
-        -o-transform: translateY(@smartphoneMenuHeight);        
+		.translate(0, @smartphoneMenuHeight);
     }
 
     #sidehd {

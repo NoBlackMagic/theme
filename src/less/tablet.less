@@ -7,15 +7,9 @@
     width: @tabletSidebarWidth;
     
     height:100%;
-    
-    -webkit-transform: translateX(-@tabletSidebarWidth);
-    -moz-transform: translateX(-@tabletSidebarWidth);
-    -o-transform: translateX(-@tabletSidebarWidth);
-    
-    -webkit-transition: all @sideTransition;
-    -moz-transition: all @sideTransition;
-    -o-transition: all @sideTransition;
-    
+        
+	.transition(all @sideTransition);
+	.translate(-@tabletSidebarWidth, 0);
 }
 
 #sidein {
@@ -25,9 +19,7 @@
     margin: @tabletMenuVMargin @tabletMenuHMargin;
     overflow:auto;
     
-    -webkit-overflow-scrolling: touch;
-    -moz-overflow-scrolling: touch;
-    -o-overflow-scrolling: touch;
+    .touch-scrolling(touch);
 }
 
 #handler {
@@ -48,9 +40,7 @@
 .side-open {
     
     #side {
-        -webkit-transform: translateX(0);
-        -moz-transform: translateX(0);
-        -o-transform: translateX(0);
+        .translate(0, 0);
     }
     
     #handler {
