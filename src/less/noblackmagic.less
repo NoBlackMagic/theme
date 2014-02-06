@@ -1,7 +1,7 @@
 /**
- * NoBlackMagic
- * mobile first responsive theme
- */
+* NoBlackMagic
+* mobile first responsive theme
+*/
 
 
 
@@ -11,8 +11,8 @@
 // ----------------------------------------- //
 
 /**
- * General
- */
+* General
+*/
 
 @breakpointSmartphones: 320px; 
 @breakpointTablet: 480px; 
@@ -28,8 +28,8 @@
 
 
 /**
- * Smartphones
- */
+* Smartphones
+*/
 
 @smartphoneHeaderHeight: 60px;
 @smartphoneMenuHeight: 250px;
@@ -52,8 +52,8 @@
 
 
 /**
- * Tablet
- */
+* Tablet
+*/
 
 @tabletSidebarWidth: @smartphoneMenuHeight;
 @tabletHandlerWidth: @smartphoneHandlerWidth;
@@ -68,8 +68,8 @@
 @tabletMainVMargin: @smartphoneMainVMargin;
 
 /**
- * Desktop
- */
+* Desktop
+*/
 
 @desktopSidebarWidth: @tabletSidebarWidth;
 
@@ -98,17 +98,17 @@
 
 /* smartphones portrait */
 @media screen and (min-width: @breakpointSmartphones) and (max-width: (@breakpointTablet - 1)) {
-    @import "smartphones";
+	@import "smartphones";
 }
 
 /* smartphones landscape, tablet portrait */
 @media screen and (min-width: @breakpointTablet) and (max-width: (@breakpointDesktop - 1)) {
-    @import "tablet";
+	@import "tablet";
 }
 
 /* tablet portrait, desktop */
 @media screen and (min-width: @breakpointDesktop) {
-    @import "desktop";    
+	@import "desktop";    
 }
 
 

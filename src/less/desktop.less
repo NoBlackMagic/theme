@@ -1,28 +1,30 @@
 #side {
-	position:fixed;
-    top:0;
-    left:0;
-    display:block;
-    width: @desktopSidebarWidth;
-    height:100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	display: block;
+	width: @desktopSidebarWidth;
+	height: 100%;
 }
 
 #sidein {
-    position:relative;
-    display:block;
-    height:100%;
-    margin: @desktopMenuVMargin @desktopMenuHMargin;
-    overflow:auto;
-    
-    -webkit-overflow-scrolling: touch;
-    -moz-overflow-scrolling: touch;
+	position: relative;
+	
+	display: block;
+	height: 100%;
+	margin: @desktopMenuVMargin @desktopMenuHMargin;
+	overflow: auto;
+	
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
 }
 
 #handler {
-    display:none;
+	display: none;
 }
 
 #main {
-    margin: @desktopMainVMargin @desktopMainHMargin;
-    margin-left: @desktopSidebarWidth + @desktopMainHMargin;
+	margin: @desktopMainVMargin @desktopMainHMargin;
+	margin-left: @desktopSidebarWidth + @desktopMainHMargin;
 }

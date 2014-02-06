@@ -1,50 +1,54 @@
 
 #side {
-	position:fixed;
-    top:0;
-    left:0;
-    display:block;
-    width: @tabletSidebarWidth;
-    
-    height:100%;
-        
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	display: block;
+	width: @tabletSidebarWidth;
+	
+	height: 100%;
+	
 	.transition(all @sideTransition);
 	.translate(-@tabletSidebarWidth, 0);
 }
 
 #sidein {
-    position:relative;
-    display:block;
-    height:100%;
-    margin: @tabletMenuVMargin @tabletMenuHMargin;
-    overflow:auto;
-    
-    .touch-scrolling(touch);
+	position: relative;
+	
+	display: block;
+	height: 100%;
+	margin: @tabletMenuVMargin @tabletMenuHMargin;
+	
+	overflow: auto;
+	
+	.touch-scrolling(touch);
 }
 
 #handler {
-    position: absolute;
-    top:0;
-    right:-@tabletHandlerWidth;
-    display:block;
-    width: @tabletHandlerWidth;
-    height: 100%;
-    background: @tabletHandlerBackground;
+	position: absolute;
+	top: 0;
+	right: -@tabletHandlerWidth;
+	
+	display: block;
+	width: @tabletHandlerWidth;
+	height: 100%;
+	background: @tabletHandlerBackground;
 }
 
 #main {
-    margin: @tabletMainVMargin @tabletMainHMargin;
-    margin-left: @tabletHandlerWidth + @tabletMainHMargin;
+	margin: @tabletMainVMargin @tabletMainHMargin;
+	margin-left: @tabletHandlerWidth + @tabletMainHMargin;
 }
 
 .side-open {
-    
-    #side {
-        .translate(0, 0);
-    }
-    
-    #handler {
-        background:@tabletHandlerABackground;
-    }
-    
+	
+	#side {
+		.translate(0, 0);
+	}
+	
+	#handler {
+		background: @tabletHandlerABackground;
+	}
+	
 }
