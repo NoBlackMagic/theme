@@ -42,17 +42,18 @@
 }
 
 #handler {
-	position: absolute;
+	position: fixed;
+	top: @smartphoneHandlerVMargin;
 	right: @smartphoneHandlerHMargin;
-	bottom: 0;
 	
+	display: block;
 	width: @smartphoneHandlerWidth;
 	height: @smartphoneHandlerHeight;
 	
 	background: @smartphoneHandlerBackground;
 	
 	.transition(all @sideTransition);
-	.translate(0, -@smartphoneHandlerVMargin);
+//	.translate(0, -@smartphoneHandlerVMargin);
 }
 
 #main {
@@ -88,9 +89,7 @@
 	#handler {
 		background:@smartphoneHandlerABackground;
 		
-		-webkit-transform: rotate(90deg) translateX(-(@smartphoneMenuHeight + @smartphoneHandlerVMargin));
-		-moz-transform: rotate(90deg) translateX(-(@smartphoneMenuHeight + @smartphoneHandlerVMargin));
-		-o-transform: rotate(90deg) translateX(-(@smartphoneMenuHeight + @smartphoneHandlerVMargin));
+		.rotate(180deg);
 	}
 
 }

@@ -41,7 +41,7 @@
 @smartphoneHandlerWidth: @smartphoneHeaderHeight - 20%;
 @smartphoneHandlerHeight: @smartphoneHandlerWidth;
 // horizontal / vertical margins
-@smartphoneHandlerHMargin: @smartphoneHeaderHeight / 2 - @smartphoneHandlerHeight / 2;
+@smartphoneHandlerHMargin: (@smartphoneHeaderHeight - @smartphoneHandlerHeight) / 2;
 @smartphoneHandlerVMargin: @smartphoneHandlerHMargin;
 
 @smartphoneHandlerBackground: #ddd;
@@ -56,11 +56,11 @@
 */
 
 @tabletSidebarWidth: @smartphoneMenuHeight;
-@tabletHandlerWidth: @smartphoneHandlerWidth;
 
 @tabletMenuHMargin: @smartphoneMenuHMargin;
 @tabletMenuVMargin: @smartphoneMenuVMargin;
 
+@tabletHandlerWidth: @smartphoneHandlerWidth;
 @tabletHandlerBackground: @smartphoneHandlerBackground;
 @tabletHandlerABackground: @smartphoneHandlerBackground;
 
