@@ -5,8 +5,7 @@
 #side {
 	position: fixed;
 	top: 0;
-	left: -(@tabletSidebarWidth - @tabletSidebarOffset);
-	z-index: 1000;
+	left: 0;
 	
 	display: block;
 	width: @tabletSidebarWidth;
@@ -14,7 +13,7 @@
 	height: 100%;
 	
 	.transition(all @sideTransition);
-	.translate(0, 0);
+	.translate(-(@tabletSidebarWidth - @tabletSidebarOffset), 0);
 }
 
 #sidew {
@@ -55,12 +54,13 @@ html, body {
 	margin-left: @tabletHandlerWidth + @tabletMainHMargin + @tabletSidebarOffset;
 	
 	.transition(all @sideTransition);
+	-webkit-backface-visibility: hidden;
 }
 
 .side-open {
 	
 	#side {
-		.translate((@tabletSidebarWidth - @tabletSidebarOffset), 0);
+		.translate(0, 0);
 	}
 	
 	#handler {
@@ -72,4 +72,5 @@ html, body {
 	#main {
 		.translate(@tabletSidebarWidth + @tabletSidebarOffset, 0);
 	}
+	
 }
