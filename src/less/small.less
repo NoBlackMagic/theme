@@ -2,7 +2,17 @@
  * NoBlackMagic | Basic
  */
 
+html, body {
+	overflow-x: hidden;
+}
+
+#handler {
+	z-index: 3000;
+}
+
 #side {
+	z-index: 2000;
+	
 	height: auto;
 	
 	background: @sideBgColor;
@@ -11,5 +21,6 @@
 }
 
 #main {
+	z-index: 1000;
 	height: auto;
 }

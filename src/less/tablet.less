@@ -6,7 +6,6 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	z-index: 30000;
 	
 	display: block;
 	width: @tabletSidebarWidth;
@@ -32,7 +31,6 @@
 	position: fixed;
 	top: 0;
 	left: @tabletSidebarOffset;
-	z-index: 20000;
 	
 	display: block;
 	width: @tabletHandlerWidth;
@@ -43,14 +41,9 @@
 	.transition(all @sideTransition);
 }
 
-html, body {
-	overflow-x: hidden;
-}
-
 #main {
 	margin: @tabletMainVMargin @tabletMainHMargin;
 	margin-left: @tabletHandlerWidth + @tabletMainHMargin + @tabletSidebarOffset;
-	z-index: 10000;
 	
 	.transition(all @sideTransition);
 }
