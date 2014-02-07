@@ -8,6 +8,8 @@
 	var delta = null;
 	var sideWidth = null;
 	
+	
+	
 	handler.addEventListener('click', function(e) {
 		toggleBody();
 	});
