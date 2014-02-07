@@ -44,6 +44,9 @@
 #main {
 	margin: @tabletMainVMargin @tabletMainHMargin;
 	margin-left: @tabletHandlerWidth + @tabletMainHMargin + @tabletSidebarOffset;
+	
+	.transition(all @sideTransition);
+	-webkit-backface-visibility: hidden;
 }
 
 .side-open {
@@ -56,6 +59,10 @@
 		background: @tabletHandlerABackground;
 		
 		.translate(@tabletSidebarWidth - @tabletSidebarOffset, 0);
+	}
+	
+	#main {
+		.translate(@tabletSidebarWidth + @tabletSidebarOffset, 0);
 	}
 	
 }
