@@ -1,13 +1,11 @@
 (function(){
 	
 	var body = document.querySelector('body');
-	var sidebar = document.querySelector('#side');
 	var header =  document.querySelector('#sideh');
-	var handler = document.querySelector('#handler');
 	
 	var x0 = null;
 	var delta = null;
-	var sideWidth = null;
+	var swipeAction = null;
 	
 
 // ----------------------------------------------- //	
@@ -28,99 +26,46 @@
 // ---[[   T O U C H   B E H A V I O R   ]]--- //
 // ------------------------------------------- //
 	
+	/**
+	 * touch swipe works instead of the click handler
+	 * for touch devices
+	 */
+	
 	handler.addEventListener('touchstart', function(e) {
 		e.preventDefault();
 		
-		// prevent behavior in smartphone view
-		if (isSmartphone()) {return;}
-		
+		swipeAction = true;
 		x0 = e.touches[0].clientX;
-		sideWidth = side.offsetWidth;
-		
-		stopTransitions(handler);
-		stopTransitions(side);
 	});
 	
 	handler.addEventListener('touchmove', function(e) {
 		e.preventDefault();
-		if (isSmartphone()) {return;}
+		
+		// swipe once
+		if (!swipeAction) {
+			return;
+		}
 		
 		delta = e.touches[0].clientX - x0;
-		
-		if (!body.hasClass('side-open') && delta > 0 && delta < side.offsetWidth) {
-			handler.translateX(delta);
-			side.translateX(0 - sideWidth + delta);
-			
-		} else if (body.hasClass('side-open') && delta < 0) {
-			handler.translateX(sideWidth + delta);
-			side.translateX(0 + delta);
-			
+
+		// detect swipe in/out
+		if (
+			( delta > 0 && !body.hasClass('side-open') ) ||
+			( delta < 0 && body.hasClass('side-open') )
+		) {
+			toggleBody();
+			swipeAction = false;
 		}
 	});
 	
 	handler.addEventListener('touchend', function(e) {
 		e.preventDefault();
 		
-		// custom behavior in smartphone view
-		if (isSmartphone()) {
-			!body.hasClass('side-open') ? openTopbar() : closeTopbar();
+		if (swipeAction) {
 			toggleBody();
-			return;
-		}
-		
-		resetTransitions(handler);
-		resetTransitions(side);
-		
-		// click on sidebar handler
-		if (!delta) {
-			!body.hasClass('side-open') ? openSidebar() : closeSidebar();
-			toggleBody();
-		
-		// sidebar complete action
-		} else if (Math.abs(delta) > sideWidth / 3) {
-			!body.hasClass('side-open') ? openSidebar() : closeSidebar();
-			toggleBody();
-		
-		// reset to initial position
-		} else {
-			!body.hasClass('side-open') ? closeSidebar() : openSidebar();
-			
 		}
 	});
 	
-	window.addEventListener('resize', function() {
-		isSmartphone() ? closeTopbar() : closeSidebar();
-	});
-	
-	function isSmartphone() {
-		return (handler.offsetWidth === handler.offsetHeight);
-	}
-	
-	function stopTransitions(el) {
-		el.addClass('notransition');
-	}
-	
-	function resetTransitions(el) {
-		el.removeClass('notransition');
-	}
-	
-	function openSidebar() {
-		handler.translateX(sideWidth);
-		side.translateX(0);
-	}
-	
-	function closeSidebar() {
-		handler.translateX(0);
-		side.translateX(0 - sideWidth);
-	}
-	
-	function openTopbar() {
-		side.translateY(0);
-	}
-	
-	function closeTopbar() {
-		side.translateY(0 - sidebar.offsetHeight + header.offsetHeight);
-	}
 	
 	
 	
@@ -156,18 +101,6 @@
 		} else {
 			this.addClass(name);
 		}
-	};
-	
-	Element.prototype.translateX = function(val) {
-		this.style.WebkitTransform = 'translateX(' + val + 'px)';
-		this.style.MsTransform = 'translateX(' + val + 'px)';
-		this.style.transform = 'translateX(' + val + 'px)';
-	};
-	
-	Element.prototype.translateY = function(val) {
-		this.style.WebkitTransform = 'translateY(' + val + 'px)';
-		this.style.MsTransform = 'translateY(' + val + 'px)';
-		this.style.transform = 'translateY(' + val + 'px)';
 	};
 	
 	
