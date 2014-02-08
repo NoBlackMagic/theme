@@ -1,0 +1,6 @@
+{
+	"pageTitle": "NoBlackMagic Theme",
+	"demoText": "<p>--CONTENTS HERE--</p>",
+	"css": ["src/css/noblackmagic.css"],
+	"js": ["src/js/noblackmagic.js"]
+}

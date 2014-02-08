@@ -5,6 +5,7 @@
 module.exports = function (grunt) {
 
 	var pkg = grunt.file.readJSON('package.json');
+	var build = grunt.file.readJSON('build.json');
 	
 // ----------------------------------------------------- //
 // ---[[   G R U N T   C O N F I G U R A T I O N   ]]--- //
@@ -18,7 +19,32 @@ module.exports = function (grunt) {
 			less: [
 				'src/css/noblackmagic.css',
 				'src/css/noblackmagic.css.map'
+			],
+			build: [
+				//'build/**/*',
+				'src/css/noblackmagic.min.css',
+				'src/css/noblackmagic.min.css.map'
 			]
+		},
+		
+		copy: {
+			assets: {
+				files: [
+					{expand: true, cwd: 'src/images',src: ['**'], dest: 'build/assets/images'},
+					{expand: true, cwd: 'src/fonts',src: ['**'], dest: 'build/assets/fonts'}
+				]
+			},
+			html: {
+				options: {
+					process: parseIndexFile
+				},
+				files: [{
+					expand: true,
+					cwd: 'src/',
+					src: ['index.html'],
+					dest: 'build/'
+				}]
+			}
 		},
 		
 		less: {
@@ -30,6 +56,22 @@ module.exports = function (grunt) {
 			dev: {
 				files: {
 					'src/css/noblackmagic.css' : ['src/less/noblackmagic.less']
+				}
+			}
+		},
+		
+		uglify: {
+			build: {
+				files: {
+					'build/assets/js/noblackmagic.min.js': build.js
+				}
+			}
+		},
+		
+		cssmin: {
+			build: {
+				files: {
+					'build/assets/css/noblackmagic.min.css': build.css
 				}
 			}
 		},
@@ -62,16 +104,32 @@ module.exports = function (grunt) {
 // ---[[   A V A I L A B L E   T A S K S   ]]--- //
 // --------------------------------------------- //
 	
-	grunt.registerTask('build-less', ['clean:less', 'less:dev']);
+	grunt.registerTask('build-less', ['clean:less', 'less']);
 	
 	grunt.registerTask('watch-less', ['build-less', 'watch:less']);
 	
+	grunt.registerTask('build', [
+		'clean',
+		'copy',
+		'less',
+		'uglify',
+		'cssmin'
+	]);
+	
 	grunt.registerTask('default', ['build-less']);
+	
+	
 	
 // ----------------------------- //
 // ---[[   H E L P E R S   ]]--- //	
 // ----------------------------- //
-
-		
+	
+	function parseIndexFile(html) {
+		html = html.replace(/<!--\[CSS\]-->[\s\S]*?<!--\[\/CSS\]-->/g, '<link rel="stylesheet" href="./assets/css/noblackmagic.min.css" />');
+		html = html.replace(/<!--\[JS\]-->[\s\S]*?<!--\[\/JS\]-->/g, '<script src="./assets/js/noblackmagic.min.js"></script>');
+		html = html.replace(/<!--\[DEMO\]-->[\s\S]*?<!--\[\/DEMO\]-->/g, build.demoText);
+		html = html.replace(/PageTitle/g, build.pageTitle);
+		return html;
+	}	
 	
 };
