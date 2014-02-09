@@ -3248,8 +3248,8 @@ body {
     transition: all 0.25s ease-out;
   }
   #main {
-    margin: 20px 0;
-    margin-top: 80px;
+    margin: 0 0;
+    margin-top: 60px;
   }
   /**
 * Both menu and content slides down when menu extends.
@@ -3293,10 +3293,7 @@ body {
   }
   #sidew {
     position: relative;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    -webkit-flex-direction: column;
+    display: block;
     height: 100%;
     margin: 0 0;
   }
@@ -3305,13 +3302,10 @@ body {
     height: 60px;
   }
   #sidec {
-    -webkit-flex: 1;
-    flex: 1;
-    height: 0px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+    position: relative;
+    display: block;
+    height: 250px;
+    overflow: hidden;
   }
   #handler {
     position: fixed;
@@ -3335,7 +3329,7 @@ body {
   }
   #main {
     z-index: 999;
-    margin: 20px 0;
+    margin: 0 0;
     margin-left: 60px;
     -webkit-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
@@ -3373,10 +3367,7 @@ body {
   }
   #sidew {
     position: relative;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    -webkit-flex-direction: column;
+    display: block;
     height: 100%;
     margin: 0 0;
   }
@@ -3385,19 +3376,16 @@ body {
     height: 60px;
   }
   #sidec {
-    -webkit-flex: 1;
-    flex: 1;
-    height: 0px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-scrolling: touch;
-    overflow-scrolling: touch;
+    position: relative;
+    display: block;
+    height: 250px;
+    overflow: hidden;
   }
   #handler {
     display: none;
   }
   #main {
-    margin: 20px 0;
+    margin: 0 0;
     margin-left: 250px;
   }
 }

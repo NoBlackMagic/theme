@@ -1,6 +1,11 @@
 {
 	"pageTitle": "NoBlackMagic Theme",
 	"demoText": "<p>--CONTENTS HERE--</p>",
-	"css": ["src/css/noblackmagic.css"],
-	"js": ["src/js/noblackmagic.js"]
+	"css": [
+        "src/css/noblackmagic.css"
+    ],
+	"js": [
+        "src/3rd-party/iscroll-master/build/iscroll.js",
+        "src/js/noblackmagic.js"
+    ]
 }

@@ -2,6 +2,7 @@
  * NoBlackMagic | Desktop
  */
 
+
 #side {
 	position: fixed;
 	top: 0;
@@ -15,11 +16,7 @@
 #sidew {
 	position: relative;
 	
-    display: -webkit-flex;
-    display: flex;
-    flex-direction: column;
-    -webkit-flex-direction: column;
-    
+    display:block;
 	height: 100%;
 	margin: @desktopMenuVMargin @desktopMenuHMargin;
 }
@@ -30,11 +27,10 @@
 }
 
 #sidec {
-    -webkit-flex: 1;
-    flex: 1;
-    height: 0px;
-    overflow-y: auto;
-    .touch-scrolling(touch);
+    position: relative;
+    display:block;
+    height: @smartphoneMenuHeight;
+    overflow: hidden;
 }
 
 #handler {

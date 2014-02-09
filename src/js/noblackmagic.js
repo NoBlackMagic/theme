@@ -1,6 +1,7 @@
+'use strict';
+
 (function(){
 	
-	var body = document.querySelector('body');
 	var header =  document.querySelector('#sideh');
 	
 	var x0 = null;
@@ -17,7 +18,7 @@
 	});
 	
 	function toggleBody() {
-		body.toggleClass('side-open');
+		document.body.toggleClass('side-open');
 	}
 	
 	
@@ -67,10 +68,41 @@
 	});
 	
 	
+    
+    
+
+// ----------------------------- //
+// ---[[   I S C R O L L   ]]--- //
+// ----------------------------- //
 	
-	
-	
-	
+    var side = document.querySelector('#side');
+    var sideh = document.querySelector('#sideh');
+    var sidec = document.querySelector('#sidec');
+    var cacheSideHeight = 0;
+    
+    // setup IScroll on sidebar menu
+    var sidecIScroll = new IScroll(sidec, {
+        mouseWheel: true,
+        scrollbars: true,
+        fadeScrollbars: true
+    });
+    
+    // keep sidebar menu size up to date 
+    function updateMenuHeight() {
+        if (cacheSideHeight != side.offsetHeight) {
+            cacheSideHeight = side.offsetHeight;
+            sidec.style.height = (cacheSideHeight - sideh.offsetHeight) + 'px';
+            sidecIScroll.refresh();
+        }
+    }
+    
+    // first update and recurrent check on the sidebar height
+    updateMenuHeight();
+    setInterval(updateMenuHeight, 250);
+    
+    
+    
+    
 	
 	
 // --------------------------------------------- //
