@@ -3229,8 +3229,8 @@ body {
     top: 0;
     display: block;
     width: 100%;
-    height: 210px;
-    margin: 20px 0;
+    height: 250px;
+    margin: 0 0;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-scrolling: touch;
@@ -3293,10 +3293,22 @@ body {
   }
   #sidew {
     position: relative;
-    display: block;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
     height: 100%;
-    margin: 20px 0;
-    overflow: auto;
+    margin: 0 0;
+  }
+  #sideh {
+    display: block;
+    height: 60px;
+  }
+  #sidec {
+    -webkit-flex: 1;
+    flex: 1;
+    height: 0px;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-scrolling: touch;
     overflow-scrolling: touch;
@@ -3361,10 +3373,22 @@ body {
   }
   #sidew {
     position: relative;
-    display: block;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
     height: 100%;
-    margin: 20px 0;
-    overflow: auto;
+    margin: 0 0;
+  }
+  #sideh {
+    display: block;
+    height: 60px;
+  }
+  #sidec {
+    -webkit-flex: 1;
+    flex: 1;
+    height: 0px;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-scrolling: touch;
     overflow-scrolling: touch;
