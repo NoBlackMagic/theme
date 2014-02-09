@@ -15,12 +15,26 @@
 #sidew {
 	position: relative;
 	
-	display: block;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    
 	height: 100%;
 	margin: @desktopMenuVMargin @desktopMenuHMargin;
-	
-	overflow: auto;
-	.touch-scrolling(touch);
+}
+
+#sideh {
+    display: block;
+    height: @desktopHeaderHeight;
+}
+
+#sidec {
+    -webkit-flex: 1;
+    flex: 1;
+    height: 0px;
+    overflow-y: auto;
+    .touch-scrolling(touch);
 }
 
 #handler {

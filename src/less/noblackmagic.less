@@ -35,7 +35,7 @@
 @smartphoneMenuHeight: 250px;
 
 @smartphoneMenuHMargin: 0;
-@smartphoneMenuVMargin: 20px;
+@smartphoneMenuVMargin: 0;
 
 // handler size
 @smartphoneHandlerWidth: @smartphoneHeaderHeight - 20%;
@@ -55,6 +55,7 @@
  * Tablet
  */
 
+@tabletHeaderHeight: @smartphoneHeaderHeight;
 @tabletSidebarWidth: @smartphoneMenuHeight;
 @tabletSidebarOffset: 0;
 
@@ -72,6 +73,7 @@
  * Desktop
  */
 
+@desktopHeaderHeight: @tabletHeaderHeight;
 @desktopSidebarWidth: @tabletSidebarWidth;
 
 @desktopMenuHMargin: @tabletMenuHMargin;
