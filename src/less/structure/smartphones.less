@@ -51,9 +51,20 @@
 	width: @smartphoneHandlerWidth;
 	height: @smartphoneHandlerHeight;
 	
-	background: @smartphoneHandlerBackground;
 	
-	.transition(all @sideTransition);
+	
+    & when(@smartphoneHandlerAnimate = true) {
+	    .transition(all @sideTransition);
+    }
+    
+    & when(@smartphoneHandlerArrow = false) {
+        background: @smartphoneHandlerBackground;
+    }
+    
+    & when(@smartphoneHandlerArrow = true) {
+        .smartphone-arrow();
+    }
+    
 }
 
 #main {
@@ -90,9 +101,16 @@
 		background:@smartphoneHandlerABackground;
 		
 		.rotate(180deg);
+        
+        & when(@smartphoneHandlerArrow = true) {
+            .smartphone-arrow();
+        }
 	}
 
 }
+
+
+
 
 
 

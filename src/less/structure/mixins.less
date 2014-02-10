@@ -23,6 +23,14 @@
 
 
 
+
+
+
+
+
+
+
+
 /**
  * shared header instructions
  * - smartphone
@@ -34,3 +42,72 @@
     height: @height;
     overflow: hidden;
 }
+
+
+
+
+
+
+/**
+ * Triangle Shape
+ */
+
+.triangle-r(@color, @size) {
+    width: 0; 
+    height: 0; 
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent;
+    border-left: @size solid @color;
+    border-right: 0 solid transparent;
+}
+
+.triangle-l(@color, @size) {
+    width: 0; 
+    height: 0; 
+    border-top: @size solid transparent;
+    border-bottom: @size solid transparent;
+    border-right: @size solid @color;
+    border-left: 0 solid transparent;
+}
+
+.triangle-d(@color, @size) {
+    width: 0; 
+    height: 0; 
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-top: @size solid @color;
+    border-bottom: 0 solid transparent;
+}
+
+.triangle-u(@color, @size) {
+    width: 0; 
+    height: 0; 
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+    border-bottom: @size solid @color;
+    border-top: 0 solid transparent;
+}
+
+.smartphone-arrow {
+    background: transparent;
+    &:after {
+        content: '';
+        position: absolute;
+        top: @smartphoneHandlerHeight / 3;
+        left: @smartphoneHandlerWidth / 6;
+        .triangle-d(@smartphoneHandlerBackground, @smartphoneHandlerWidth / 3);
+    }
+}
+
+.tablet-arrow {
+    background: transparent;
+    &:after {
+        position: absolute;
+        top: @smartphoneHeaderHeight;
+        left: 0;
+        content: '';
+        .triangle-r(@sideBgColor, @tabletHandlerTriangleHeight);
+    }
+}
+
+

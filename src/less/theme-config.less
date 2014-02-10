@@ -42,7 +42,9 @@
 @smartphoneHandlerHMargin: (@smartphoneHeaderHeight - @smartphoneHandlerHeight) / 2;
 @smartphoneHandlerVMargin: @smartphoneHandlerHMargin;
 
-@smartphoneHandlerBackground: #ddd;
+@smartphoneHandlerAnimate: false;
+@smartphoneHandlerArrow: true;
+@smartphoneHandlerBackground: #aaa;
 @smartphoneHandlerABackground: @smartphoneHandlerBackground;
 
 @smartphoneMainHMargin: @smartphoneMenuHMargin;
@@ -55,17 +57,22 @@
 
 @tabletHeaderHeight: @smartphoneHeaderHeight;
 @tabletSidebarWidth: @smartphoneMenuHeight;
-@tabletSidebarOffset: 0;
+@tabletSidebarOffset: 20px;
 
 @tabletMenuHMargin: @smartphoneMenuHMargin;
 @tabletMenuVMargin: @smartphoneMenuVMargin;
 
+@tabletHandlerArrow: true;
 @tabletHandlerWidth: @smartphoneHandlerWidth * 1.5;
 @tabletHandlerBackground: @smartphoneHandlerBackground;
 @tabletHandlerABackground: @smartphoneHandlerBackground;
+@tabletHandlerTriangleHeight: @tabletHandlerWidth * .85;
 
 @tabletMainHMargin: @smartphoneMainHMargin;
 @tabletMainVMargin: @smartphoneMainVMargin;
+
+// sliding difference while opening the sidebar
+@tabletMainParallax: .75;
 
 /**
  * Desktop
