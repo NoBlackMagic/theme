@@ -4,114 +4,52 @@
 */
 
 
-
-
 // ----------------------------------------- //
 // ---[[   C O N F I G U R A T I O N   ]]--- //
 // ----------------------------------------- //
 
-/**
-* General
-*/
+@bootstrapPath: "../3rd-party/bootstrap/";
 
-@breakpointSmartphones: 320px; 
-@breakpointTablet: 480px; 
-@breakpointDesktop: 1024px; 
-
-// global - main area
-@bgColor: #fff;
-
-// sidebar
-@sideBgColor: #eee;
-
-@sideTransition: .25s ease-out;
-
-
-/**
- * Smartphones
- */
-
-@smartphoneHeaderHeight: 60px;
-@smartphoneMenuHeight: 250px;
-
-@smartphoneMenuHMargin: 0;
-@smartphoneMenuVMargin: 0;
-
-// handler size
-@smartphoneHandlerWidth: @smartphoneHeaderHeight - 20%;
-@smartphoneHandlerHeight: @smartphoneHandlerWidth;
-// horizontal / vertical margins
-@smartphoneHandlerHMargin: (@smartphoneHeaderHeight - @smartphoneHandlerHeight) / 2;
-@smartphoneHandlerVMargin: @smartphoneHandlerHMargin;
-
-@smartphoneHandlerBackground: #ddd;
-@smartphoneHandlerABackground: @smartphoneHandlerBackground;
-
-@smartphoneMainHMargin: @smartphoneMenuHMargin;
-@smartphoneMainVMargin: 0;
-
-
-/**
- * Tablet
- */
-
-@tabletHeaderHeight: @smartphoneHeaderHeight;
-@tabletSidebarWidth: @smartphoneMenuHeight;
-@tabletSidebarOffset: 0;
-
-@tabletMenuHMargin: @smartphoneMenuHMargin;
-@tabletMenuVMargin: @smartphoneMenuVMargin;
-
-@tabletHandlerWidth: @smartphoneHandlerWidth * 1.5;
-@tabletHandlerBackground: @smartphoneHandlerBackground;
-@tabletHandlerABackground: @smartphoneHandlerBackground;
-
-@tabletMainHMargin: @smartphoneMainHMargin;
-@tabletMainVMargin: @smartphoneMainVMargin;
-
-/**
- * Desktop
- */
-
-@desktopHeaderHeight: @tabletHeaderHeight;
-@desktopSidebarWidth: @tabletSidebarWidth;
-
-@desktopMenuHMargin: @tabletMenuHMargin;
-@desktopMenuVMargin: @tabletMenuVMargin;
-
-@desktopMainHMargin: @tabletMainHMargin;
-@desktopMainVMargin: @tabletMainVMargin;
+/* all config variables for both TwitterBootstrap and NoBlackMagic */
+@import "./theme-config.less";
 
 
 
 
+// --------------------------------- //
+// ---[[   S T R U C T U R E   ]]--- //
+// --------------------------------- //
 
+/* Twitter Bootstrap */
+@import "./structure/bootstrap.less";
 
+/* utilities and shared mixins */
+@import "structure/mixins";
 
-
-// ------------------------------------------- //
-// ---[[   I M P L E M E N T A T I O N   ]]--- //
-// ------------------------------------------- //
-
-@import "./bootstrap.less";
-
-
-@import "mixins";
-@import "small";
+/* mobile first */
+@import "structure/small";
 
 /* smartphones portrait */
 @media screen and (min-width: @breakpointSmartphones) and (max-width: (@breakpointTablet - 1)) {
-	@import "smartphones";
+	@import "structure/smartphones";
 }
 
 /* smartphones landscape, tablet portrait */
 @media screen and (min-width: @breakpointTablet) and (max-width: (@breakpointDesktop - 1)) {
-	@import "tablet";
+	@import "structure/tablet";
 }
 
 /* tablet portrait, desktop */
 @media screen and (min-width: @breakpointDesktop) {
-	@import "desktop";    
+	@import "structure/desktop";    
 }
 
 
+
+
+
+// ----------------------------------------- //
+// ---[[   C U S T O M I Z A T I O N   ]]--- //
+// ----------------------------------------- //
+
+@import "./theme-extend.less";
