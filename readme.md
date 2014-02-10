@@ -3,18 +3,9 @@ NoBlackMagic Theme
 
 > Responsive HTML theme for blogs and websites.
 
-Quick run:
+#### PROPERTIES
 
-    npm install && grunt && node server.js
-    
-Then open a _web browser_ and point to:
-
-    http://localhost:4000
-    
-
-## PROPERTIES
-
-- **heavy responsive**: smartphone / tablet / desktop optimized
+- **beautiful responsive**: smartphone / tablet / desktop optimized
 - **hight configurable** responsive behaviors
 - TwitterBoostrap available for stylish contents
 - full editable **_LESS_ source**
@@ -22,18 +13,28 @@ Then open a _web browser_ and point to:
 - floating sidebar on small tablets
 - fixed sidebar on desktop
 
-## TODO:
+#### TODO:
 
-- implement flexbox in sidebar for fixed header
 - IE10+ check... may be 9+??
 
-## Known Issues:
+## First Install
 
-- Safari Desktop - menu area is not scrollable in smartphone and tablet configuration
+As soon as you clone or download this package you need to use _NPM_ to solve required developement dependencies then run the default [_GruntJS_](http://gruntjs.com/) task to build it.
 
+    npm install && grunt
+    
+> You need the lates [_NodeJS_](http://nodejs.org/) and [_NPM_](https://npmjs.org/) versions installed on your machine!
+    
+    
+## Development Server
 
+    node server.js
+    
+Then open a _web browser_ and point to:
 
-
+    http://localhost:8080
+    
+   
 ## Deal With Sources
 
 All theme sources are stored in `/src` folder. 

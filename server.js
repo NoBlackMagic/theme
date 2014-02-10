@@ -35,5 +35,9 @@ app.use(function (req, res) {
 
 // Start
 server.listen(PORT);
-console.log('Web server listening on port %d', PORT);
-console.log('Public directory: %s', PUBLIC_DIR);
+console.log(' ');
+console.log('===================================');
+console.log('Just open your Chrome and point to:');
+console.log('http://localhost:%s', PORT);
+console.log('===================================');
+
