@@ -2,7 +2,7 @@
  * Theme Vicenza
  */
 
-var marked = require('marked');
+var markdownTag = require('markdown-tag');
 
 module.exports = function (grunt) {
 
@@ -131,36 +131,8 @@ module.exports = function (grunt) {
 		html = html.replace(/<!--\[JS\]-->[\s\S]*?<!--\[\/JS\]-->/g, '<script src="./assets/js/noblackmagic.min.js"></script>');
 		html = html.replace(/<!--\[DEMO\]-->[\s\S]*?<!--\[\/DEMO\]-->/g, build.demoText);
 		html = html.replace(/PageTitle/g, build.pageTitle);
-        html = parseMarkdownArea(html);
+        html = markdownTag(html);
 		return html;
 	}	
-	
-    function parseMarkdownArea(html) {
-        var openTag = '<!--[Markdown]-->';
-        var closeTag = '<!--[/Markdown]-->';
-        
-        var startIdx = html.indexOf(openTag);
-        var safeWhile = 100;
-        while (startIdx !== -1 && safeWhile > 0) {
-            
-            var endIdx = html.indexOf(closeTag, startIdx);
-            if (endIdx === -1) {
-                return html;
-            }
-            
-            // find markdown and strip indentation tags
-            var markdown = html.substring(startIdx + openTag.length, endIdx);
-            markdown = markdown.replace(new RegExp(markdown.substring(markdown.lastIndexOf('\n')), 'g'), '\n');
-            
-            html = html.substring(0, startIdx) 
-                 + marked(markdown) 
-                 + html.substring(endIdx + closeTag.length);
-            
-            startIdx = html.indexOf(openTag);
-            safeWhile--;
-        }
-        
-		return html;
-	}
     
 };
