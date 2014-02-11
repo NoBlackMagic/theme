@@ -29,6 +29,11 @@
 /* mobile first */
 @import "structure/small";
 
+/* common styles from smartphones to desktop */
+@media screen and (min-width: @breakpointSmartphones) {
+    @import "structure/all";
+}
+
 /* smartphones portrait */
 @media screen and (min-width: @breakpointSmartphones) and (max-width: (@breakpointTablet - 1)) {
 	@import "structure/smartphones";
@@ -41,10 +46,8 @@
 
 /* tablet portrait, desktop */
 @media screen and (min-width: @breakpointDesktop) {
-	@import "structure/desktop";    
+	@import "structure/desktop";
 }
-
-
 
 
 
