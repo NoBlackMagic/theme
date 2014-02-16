@@ -1,21 +1,43 @@
 /**
- * Global mixins
+ * Global Mixins
  */
 
 
-/**
- * Inherited from TwitterBoostrap
- * .transition
- * .translate
- * .rotate
- */
- 
+/************************************************************
+ ***                TwitterBoostrap                       ***
+ ************************************************************
+
+ Follwing mixins are inherited from TwB LESS
+ sources.
+
+ If you plan to remove TwB dependency you need to uncomment
+ this block to make mixins work.
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  transition: @transition;
+}
+
+.translate(@x; @y) {
+  -webkit-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y); // IE9 only
+  transform: translate(@x, @y);
+}
+
+.rotate(@degrees) {
+  -webkit-transform: rotate(@degrees);
+  -ms-transform: rotate(@degrees); // IE9 only
+  transform: rotate(@degrees);
+}
+************************************************************/
+
+
+
 .touch-scrolling(@value) {
     -webkit-overflow-scrolling: @value;
         -ms-overflow-scrolling: @value;
             overflow-scrolling: @value;
 }
-
 
 .notransition {
   -webkit-transition: none !important;
