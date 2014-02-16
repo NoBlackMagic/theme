@@ -1,5 +1,5 @@
 /**
- * Theme Vicenza
+ * NoBlackMagic - Theme
  */
 
 var markdownTag = require('markdown-tag');
@@ -64,17 +64,13 @@ module.exports = function (grunt) {
 		
 		uglify: {
 			build: {
-				files: {
-					'build/assets/js/noblackmagic.min.js': build.js
-				}
+				files: {} // dynamically built from HTML
 			}
 		},
 		
 		cssmin: {
 			build: {
-				files: {
-					'build/assets/css/noblackmagic.min.css': build.css
-				}
+				files: {} // dynamically built from HTML
 			}
 		},
 		
@@ -127,12 +123,45 @@ module.exports = function (grunt) {
 // ----------------------------- //
 	
 	function parseIndexFile(html) {
+
+		// create cssmin config
+		grunt.config.data.cssmin.build.files['build/assets/css/noblackmagic.min.css'] = html2CssPaths(html).map(function(relativePath) {
+			return relativePath.replace('./', 'src/');
+		});
+
+		// create uglify config
+		grunt.config.data.uglify.build.files['build/assets/js/noblackmagic.min.js'] = html2JsPaths(html).map(function(relativePath) {
+			return relativePath.replace('./', 'src/');
+		});
+        
 		html = html.replace(/<!--\[CSS\]-->[\s\S]*?<!--\[\/CSS\]-->/g, '<link rel="stylesheet" href="./assets/css/noblackmagic.min.css" />');
 		html = html.replace(/<!--\[JS\]-->[\s\S]*?<!--\[\/JS\]-->/g, '<script src="./assets/js/noblackmagic.min.js"></script>');
 		html = html.replace(/<!--\[DEMO\]-->[\s\S]*?<!--\[\/DEMO\]-->/g, build.demoText);
 		html = html.replace(/PageTitle/g, build.pageTitle);
         html = markdownTag(html);
 		return html;
-	}	
+	}
+
+	/**
+	 * extract all css paths from the given html block
+	 */
+    function html2CssPaths(html) {
+		var paths = [];
+        html.replace(/<link\s+rel="stylesheet"\s+href="([^"]*)"\s*\/>/g, function (match, href) {
+			paths.push(href);
+        });
+        return paths;
+    }
+
+	/**
+	 * extract all js paths from the given html block
+	 */
+	function html2JsPaths(html) {
+		var paths = [];
+		html.replace(/<script\s+src="([^"]*)"\s*><\/script>/g, function (match, href) {
+			paths.push(href);
+		});
+		return paths;
+	}
     
 };
