@@ -188,7 +188,7 @@ module.exports = function (grunt) {
 
 		// create cssmin config
 		grunt.config.data.cssmin.release.files['build/release/assets/css/noblackmagic.min.css'] = html2CssPaths(html).map(function(relativePath) {
-			return relativePath.replace('./', 'src/');
+			return relativePath.replace('./', 'build/debug/assets/');
 		});
 
 		html = html.replace(/<!--\[CSS\]-->[\s\S]*?<!--\[\/CSS\]-->/g, '<link rel="stylesheet" href="./assets/css/noblackmagic.min.css" />');
