@@ -32,6 +32,6 @@
     "grunt-contrib-concat": "~0.3.0",
     "express": "~3.4.8",
     "open": "0.0.4",
-    "markdown-tag": "~0.1.0"
+    "markdown-tag": "~0.2.0"
   }
 }

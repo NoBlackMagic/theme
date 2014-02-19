@@ -22,29 +22,50 @@ module.exports = function (grunt) {
 				'src/css/noblackmagic.css',
 				'src/css/noblackmagic.css.map'
 			],
-			build: [
-				//'build/**/*',
-				'src/css/noblackmagic.min.css',
-				'src/css/noblackmagic.min.css.map'
-			]
+			debug: ['build/debug/**/*'],
+			release: ['build/release/**/*'],
+			jsmap: ['noblackmagic.map.js']
 		},
 		
 		copy: {
-			assets: {
+			'assets-debug': {
 				files: [
-					{expand: true, cwd: 'src/images',src: ['**'], dest: 'build/assets/images'},
-					{expand: true, cwd: 'src/fonts',src: ['**'], dest: 'build/assets/fonts'}
+					{expand: true, cwd: 'src/images',src: ['**'], dest: 'build/debug/assets/images'},
+					{expand: true, cwd: 'src/fonts',src: ['**'], dest: 'build/debug/assets/fonts'}
 				]
 			},
-			html: {
+			'assets-release': {
+				files: [
+					{expand: true, cwd: 'src/images',src: ['**'], dest: 'build/release/assets/images'},
+					{expand: true, cwd: 'src/fonts',src: ['**'], dest: 'build/release/assets/fonts'}
+				]
+			},
+			'html-debug': {
 				options: {
-					process: parseIndexFile
+					process: parseIndexFileDebug
 				},
 				files: [{
 					expand: true,
 					cwd: 'src/',
 					src: ['index.html'],
-					dest: 'build/'
+					dest: 'build/debug/'
+				}]
+			},
+			'html-release': {
+				options: {
+					process: parseIndexFileRelease
+				},
+				files: [{
+					expand: true,
+					cwd: 'src/',
+					src: ['index.html'],
+					dest: 'build/release/'
+				}]
+			},
+			jsmap: {
+				files: [{
+					src: 'noblackmagic.map.js',
+					dest: 'build/debug/assets/js/noblackmagic.map.js'
 				}]
 			}
 		},
@@ -52,32 +73,43 @@ module.exports = function (grunt) {
 		less: {
 			options: {
 				sourceMap: true,
-				sourceMapFilename: 'src/css/noblackmagic.css.map',
-				sourceMapBasepath: 'src/css'
+				sourceMapFilename: 'build/debug/assets/css/noblackmagic.css.map',
+				sourceMapBasepath: 'build/debug/assets/css'
 			},
-			dev: {
+			debug: {
 				files: {
-					'src/css/noblackmagic.css' : ['src/less/noblackmagic.less']
+					'build/debug/assets/css/noblackmagic.css' : ['src/less/noblackmagic.less']
 				}
 			}
 		},
 		
 		uglify: {
-			build: {
+			debug: {
+				options: {
+					compress: false,
+					mangle: false,
+					beautify: true,
+					sourceMap: 'noblackmagic.map.js'
+				},
 				files: {} // dynamically built from HTML
+			},
+			release: {
+				files: {
+					'build/release/assets/js/noblackmagic.min.js' : ['build/debug/assets/js/noblackmagic.js']
+				}
 			}
 		},
 		
 		cssmin: {
-			build: {
+			release: {
 				files: {} // dynamically built from HTML
 			}
 		},
 		
 		watch: {
-			less: {
-				files: 'src/less/**/*',
-				tasks: ['build-less']
+			'build': {
+				files: 'src/**/*',
+				tasks: ['build']
 			}
 		}
 		
@@ -101,44 +133,73 @@ module.exports = function (grunt) {
 // --------------------------------------------- //
 // ---[[   A V A I L A B L E   T A S K S   ]]--- //
 // --------------------------------------------- //
-	
-	grunt.registerTask('build-less', ['clean:less', 'less']);
-	
-	grunt.registerTask('watch-less', ['build-less', 'watch:less']);
-	
+
 	grunt.registerTask('build', [
-		'clean',
-		'copy',
-		'less',
-		'uglify',
-		'cssmin'
+		'clean:debug',
+		'copy:assets-debug',
+		'less:debug',
+		'copy:html-debug',
+		'uglify:debug',
+		'copy:jsmap',
+		'clean:jsmap'
 	]);
-	
-	grunt.registerTask('default', ['build-less']);
-	
+
+	grunt.registerTask('release', [
+		'clean:release',
+		'build',
+		'copy:assets-release',
+		'copy:html-release',
+		'cssmin:release',
+		'uglify:release'
+	]);
+
+	grunt.registerTask('develop', [
+		'build',
+		'watch:build'
+	]);
+
+	grunt.registerTask('default', [
+		'build'
+	]);
 	
 	
 // ----------------------------- //
 // ---[[   H E L P E R S   ]]--- //	
 // ----------------------------- //
 	
-	function parseIndexFile(html) {
-
-		// create cssmin config
-		grunt.config.data.cssmin.build.files['build/assets/css/noblackmagic.min.css'] = html2CssPaths(html).map(function(relativePath) {
-			return relativePath.replace('./', 'src/');
-		});
+	function parseIndexFileDebug(html) {
 
 		// create uglify config
-		grunt.config.data.uglify.build.files['build/assets/js/noblackmagic.min.js'] = html2JsPaths(html).map(function(relativePath) {
+		grunt.config.data.uglify.debug.files['build/debug/assets/js/noblackmagic.js'] = html2JsPaths(html).map(function(relativePath) {
 			return relativePath.replace('./', 'src/');
 		});
-        
+
+		html = html.replace(/<!--\[JS\]-->[\s\S]*?<!--\[\/JS\]-->/g, '<script src="./assets/js/noblackmagic.js"></script>');
+
+		html = html.replace(/\.\/css/g, './assets/css');
+
+		html = markdownTag(html);
+        html = markdownTag(html, '<!--[Markdown]-->', '<!--[/Markdown]-->');
+
+		return html;
+	}
+
+	function parseIndexFileRelease(html) {
+
+		// create cssmin config
+		grunt.config.data.cssmin.release.files['build/release/assets/css/noblackmagic.min.css'] = html2CssPaths(html).map(function(relativePath) {
+			return relativePath.replace('./', 'src/');
+		});
+
 		html = html.replace(/<!--\[CSS\]-->[\s\S]*?<!--\[\/CSS\]-->/g, '<link rel="stylesheet" href="./assets/css/noblackmagic.min.css" />');
 		html = html.replace(/<!--\[JS\]-->[\s\S]*?<!--\[\/JS\]-->/g, '<script src="./assets/js/noblackmagic.min.js"></script>');
+
 		html = html.replace(/<!--\[DEMO\]-->[\s\S]*?<!--\[\/DEMO\]-->/g, build.demoText);
 		html = html.replace(/PageTitle/g, build.pageTitle);
-        html = markdownTag(html);
+
+		html = markdownTag(html);
+		html = markdownTag(html, '<!--[Markdown]-->', '<!--[/Markdown]-->');
+
 		return html;
 	}
 
