@@ -9,7 +9,7 @@ var server = http.createServer(app);
 
 // Settings
 var PORT = process.argv[2] ? parseInt(process.argv[2], 10) : 8080;
-var TARGET = process.argv[3] || 'src';
+var TARGET = process.argv[3] || 'build/debug';
 var ROOT_DIR = __dirname;
 var PUBLIC_DIR = path.join(ROOT_DIR, '' + TARGET);
 
