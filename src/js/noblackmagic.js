@@ -94,7 +94,7 @@
     function updateMenuHeight() {
         if (cacheSideHeight != side.offsetHeight) {
             cacheSideHeight = side.offsetHeight;
-            sidec.style.height = (cacheSideHeight - sideh.offsetHeight - side.VBorderSize()) + 'px';
+            sidec.style.height = (cacheSideHeight - sideh.offsetHeight - side.VBorderSize() - sidec.VMarginSize()) + 'px';
             sidecIScroll.refresh();
         }
     }
@@ -143,6 +143,11 @@
 	Element.prototype.VBorderSize = function() {
 		var style = window.getComputedStyle(this, null);
 		return parseInt(style.getPropertyValue('border-top-width'), 10) + parseInt(style.getPropertyValue('border-bottom-width'), 10);
+	};
+
+	Element.prototype.VMarginSize = function() {
+		var style = window.getComputedStyle(this, null);
+		return parseInt(style.getPropertyValue('margin-top'), 10) + parseInt(style.getPropertyValue('margin-bottom'), 10);
 	};
 	
 	
