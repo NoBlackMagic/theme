@@ -24,12 +24,9 @@
 
 @sideTransition: .25s ease-out;
 
-// sidebar main border
-// smartphones: bottom
-// tablet, desktop: right
 @sideBorderSize: 10px;
 @sideBorderStyle: solid;
-@sideBorderColor: red;
+@sideBorderColor: darken(@sideBgColor, 20);
 
 
 /**
@@ -42,6 +39,10 @@
 @smartphoneMenuHMargin: 0;
 @smartphoneMenuVMargin: 0;
 
+@smartphoneBorderSize: @sideBorderSize;
+@smartphoneBorderStyle: @sideBorderStyle;
+@smartphoneBorderColor: @sideBorderColor;
+
 // handler size
 @smartphoneHandlerWidth: @smartphoneMenuHeight * .20;
 @smartphoneHandlerHeight: @smartphoneHandlerWidth;
@@ -51,7 +52,7 @@
 
 @smartphoneHandlerAnimate: false;
 @smartphoneHandlerArrow: true;
-@smartphoneHandlerBackground: #aaa;
+@smartphoneHandlerBackground: @smartphoneBorderColor;
 @smartphoneHandlerABackground: @smartphoneHandlerBackground;
 
 @smartphoneMainHMargin: @smartphoneMenuHMargin;
@@ -64,10 +65,14 @@
 
 @tabletHeaderHeight: @smartphoneHeaderHeight;
 @tabletSidebarWidth: @smartphoneMenuHeight;
-@tabletSidebarOffset: 20px;
+@tabletSidebarOffset: 10px;
 
 @tabletMenuHMargin: @smartphoneMenuHMargin;
 @tabletMenuVMargin: @smartphoneMenuVMargin;
+
+@tabletBorderSize: @sideBorderSize;
+@tabletBorderStyle: @sideBorderStyle;
+@tabletBorderColor: @sideBgColor;
 
 @tabletHandlerArrow: true;
 @tabletHandlerWidth: @smartphoneHandlerWidth * 1.5;

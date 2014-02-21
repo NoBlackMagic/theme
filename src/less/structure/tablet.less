@@ -9,8 +9,9 @@
 	
 	display: block;
 	width: @tabletSidebarWidth;
-	
 	height: 100%;
+
+    border-right: @tabletBorderSize @tabletBorderStyle @tabletBorderColor;
 	
 	.transition(all @sideTransition);
 	.translate(-(@tabletSidebarWidth - @tabletSidebarOffset), 0);

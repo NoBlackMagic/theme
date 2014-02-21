@@ -9,9 +9,9 @@
 	
 	display: block;
 	width: 100%;
-	height: @smartphoneMenuHeight + @smartphoneHeaderHeight + @sideBorderSize;
+	height: @smartphoneMenuHeight + @smartphoneHeaderHeight + @smartphoneBorderSize;
 
-    border-bottom: @sideBorderSize @sideBorderStyle @sideBorderColor;
+    border-bottom: @smartphoneBorderSize @smartphoneBorderStyle @smartphoneBorderColor;
 	
 	.transition(all @sideTransition);
 	.translate(0, -@smartphoneMenuHeight);
@@ -33,7 +33,7 @@
 
 #sidec {
 	position: absolute;
-	top: -@sideBorderSize;
+	top: -@smartphoneBorderSize;
 	display: block;
 	
 	width: 100%;
@@ -69,7 +69,7 @@
 
 #main {
 	margin: @smartphoneMainVMargin @smartphoneMainHMargin;
-	margin-top: @smartphoneHeaderHeight + @smartphoneMainVMargin + @sideBorderSize;
+	margin-top: @smartphoneHeaderHeight + @smartphoneMainVMargin + @smartphoneBorderSize;
 }
 
 

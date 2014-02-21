@@ -80,6 +80,7 @@
     var sidec = document.querySelector('#sidec');
     var cacheSideHeight = 0;
 
+	// IEx scrollbar fix
 	sidec.style.overflow = 'hidden';
     
     // setup IScroll on sidebar menu
