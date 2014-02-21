@@ -31,6 +31,7 @@ module.exports = function (grunt) {
 			'assets-debug': {
 				files: [
 					{expand: true, cwd: 'src/images',src: ['**'], dest: 'build/debug/assets/images'},
+					{expand: true, cwd: 'src/css',src: ['**'], dest: 'build/debug/assets/css'},
 					{expand: true, cwd: 'src/fonts',src: ['**'], dest: 'build/debug/assets/fonts'}
 				]
 			},
@@ -190,7 +191,7 @@ module.exports = function (grunt) {
 		grunt.config.data.cssmin.release.files['build/release/assets/css/noblackmagic.min.css'] = html2CssPaths(html).map(function(relativePath) {
 			return relativePath.replace('./', 'build/debug/assets/');
 		});
-
+		
 		html = html.replace(/<!--\[CSS\]-->[\s\S]*?<!--\[\/CSS\]-->/g, '<link rel="stylesheet" href="./assets/css/noblackmagic.min.css" />');
 		html = html.replace(/<!--\[JS\]-->[\s\S]*?<!--\[\/JS\]-->/g, '<script src="./assets/js/noblackmagic.min.js"></script>');
 
@@ -205,6 +206,7 @@ module.exports = function (grunt) {
 
 	/**
 	 * extract all css paths from the given html block
+	 * @TODO: more elastic regexp!
 	 */
     function html2CssPaths(html) {
 		var paths = [];
