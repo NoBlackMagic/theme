@@ -9,7 +9,9 @@
 	
 	display: block;
 	width: 100%;
-	height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
+	height: @smartphoneMenuHeight + @smartphoneHeaderHeight + @sideBorderSize;
+
+    border-bottom: @sideBorderSize @sideBorderStyle @sideBorderColor;
 	
 	.transition(all @sideTransition);
 	.translate(0, -@smartphoneMenuHeight);
@@ -31,7 +33,7 @@
 
 #sidec {
 	position: absolute;
-	top: 0;
+	top: -@sideBorderSize;
 	display: block;
 	
 	width: 100%;
@@ -50,9 +52,7 @@
 	display: block;
 	width: @smartphoneHandlerWidth;
 	height: @smartphoneHandlerHeight;
-	
-	
-	
+
     & when(@smartphoneHandlerAnimate = true) {
 	    .transition(all @sideTransition);
     }
@@ -69,7 +69,7 @@
 
 #main {
 	margin: @smartphoneMainVMargin @smartphoneMainHMargin;
-	margin-top: @smartphoneHeaderHeight + @smartphoneMainVMargin;
+	margin-top: @smartphoneHeaderHeight + @smartphoneMainVMargin + @sideBorderSize;
 }
 
 

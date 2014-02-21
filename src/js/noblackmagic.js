@@ -79,6 +79,8 @@
     var sideh = document.querySelector('#sideh');
     var sidec = document.querySelector('#sidec');
     var cacheSideHeight = 0;
+
+	sidec.style.overflow = 'hidden';
     
     // setup IScroll on sidebar menu
     var sidecIScroll = new IScroll(sidec, {
@@ -91,14 +93,16 @@
     function updateMenuHeight() {
         if (cacheSideHeight != side.offsetHeight) {
             cacheSideHeight = side.offsetHeight;
-            sidec.style.height = (cacheSideHeight - sideh.offsetHeight) + 'px';
+            sidec.style.height = (cacheSideHeight - sideh.offsetHeight - side.VBorderSize()) + 'px';
             sidecIScroll.refresh();
         }
     }
     
     // first update and recurrent check on the sidebar height
-    updateMenuHeight();
-    setInterval(updateMenuHeight, 250);
+    setTimeout(function() {
+		updateMenuHeight();
+		setInterval(updateMenuHeight, 250);
+	}, 0);
     
     
     
@@ -133,6 +137,11 @@
 		} else {
 			this.addClass(name);
 		}
+	};
+
+	Element.prototype.VBorderSize = function() {
+		var style = window.getComputedStyle(this, null);
+		return parseInt(style.getPropertyValue('border-top-width'), 10) + parseInt(style.getPropertyValue('border-bottom-width'), 10);
 	};
 	
 	
