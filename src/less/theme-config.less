@@ -12,12 +12,12 @@
  * General
  */
 
-@breakpointSmartphones: 320px; 
+@breakpointPhone: 320px;
 @breakpointTablet: 480px; 
 @breakpointDesktop: 1024px; 
 
 // global - main area
-@bgColor: #fff; // applied to bootstrap's body
+@mainBgColor: #fff; // applied to bootstrap's body
 
 // sidebar
 @sideBgColor: #eee;
@@ -34,56 +34,56 @@
  * Smartphones
  */
 
-@smartphoneHeaderHeight: 60px;
-@smartphoneMenuHeight: 250px;
-@smartphoneMenuMargin: 10px;
-@smartphoneSideWrap: @sideWrap;
+@phoneHeaderHeight: 60px;
+@phoneMenuHeight: 250px;
+@phoneMenuMargin: 10px;
+@phoneSideWrap: @sideWrap;
 
-@smartphoneBorderSize: @sideBorderSize;
-@smartphoneBorderStyle: @sideBorderStyle;
-@smartphoneBorderColor: @sideBorderColor;
+@phoneBorderSize: @sideBorderSize;
+@phoneBorderStyle: @sideBorderStyle;
+@phoneBorderColor: @sideBorderColor;
 
 // handler size
-@smartphoneHandlerWidth: @smartphoneMenuHeight * .20;
-@smartphoneHandlerHeight: @smartphoneHandlerWidth;
+@phoneHandlerWidth: @phoneMenuHeight * .20;
+@phoneHandlerHeight: @phoneHandlerWidth;
 // horizontal / vertical margins
-@smartphoneHandlerHMargin: (@smartphoneHeaderHeight - @smartphoneHandlerHeight) / 2;
-@smartphoneHandlerVMargin: @smartphoneHandlerHMargin;
+@phoneHandlerHMargin: (@phoneHeaderHeight - @phoneHandlerHeight) / 2;
+@phoneHandlerVMargin: @phoneHandlerHMargin;
 
-@smartphoneHandlerAnimate: false;
-@smartphoneHandlerArrow: true;
-@smartphoneHandlerBackground: @smartphoneBorderColor;
-@smartphoneHandlerABackground: @smartphoneHandlerBackground;
+@phoneHandlerAnimate: false;
+@phoneHandlerArrow: true;
+@phoneHandlerBackground: @phoneBorderColor;
+@phoneHandlerABackground: @phoneHandlerBackground;
 
-@smartphoneMainHMargin: 0;
-@smartphoneMainVMargin: 0;
+@phoneMainHMargin: 0;
+@phoneMainVMargin: 0;
 
 
 /**
  * Tablet
  */
 
-@tabletHeaderHeight: @smartphoneHeaderHeight;
-@tabletSidebarWidth: @smartphoneMenuHeight;
+@tabletHeaderHeight: @phoneHeaderHeight;
+@tabletSidebarWidth: @phoneMenuHeight;
 @tabletSidebarOffset: 10px;
 
-@tabletSidebarWrap: @smartphoneSideWrap;
+@tabletSidebarWrap: @phoneSideWrap;
 
 
-@tabletMenuMargin: @smartphoneMenuMargin;
+@tabletMenuMargin: @phoneMenuMargin;
 
 @tabletBorderSize: @sideBorderSize;
 @tabletBorderStyle: @sideBorderStyle;
 @tabletBorderColor: @sideBgColor;
 
 @tabletHandlerArrow: true;
-@tabletHandlerWidth: @smartphoneHandlerWidth * 1.5;
-@tabletHandlerBackground: @smartphoneHandlerBackground;
-@tabletHandlerABackground: @smartphoneHandlerBackground;
+@tabletHandlerWidth: @phoneHandlerWidth * 1.5;
+@tabletHandlerBackground: @phoneHandlerBackground;
+@tabletHandlerABackground: @phoneHandlerBackground;
 @tabletHandlerTriangleHeight: @tabletHandlerWidth * .85;
 
-@tabletMainHMargin: @smartphoneMainHMargin;
-@tabletMainVMargin: @smartphoneMainVMargin;
+@tabletMainHMargin: @phoneMainHMargin;
+@tabletMainVMargin: @phoneMainVMargin;
 
 // sliding difference while opening the sidebar
 @tabletMainParallax: .75;
@@ -104,7 +104,7 @@
 
 @desktopBorderSize: @tabletBorderSize;
 @desktopBorderStyle: @tabletBorderStyle;
-@desktopBorderColor: @smartphoneBorderColor;
+@desktopBorderColor: @phoneBorderColor;
 
 
 
@@ -153,7 +153,7 @@
 // ## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               @bgColor;
+@body-bg:               @mainBgColor;
 //** Global text color on `<body>`.
 @text-color:            @gray-dark;
 

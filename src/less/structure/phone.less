@@ -1,0 +1,118 @@
+/**
+ * NoBlackMagic | Smartphones
+ */
+
+#side {
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	display: block;
+	width: 100%;
+	height: @phoneMenuHeight + @phoneHeaderHeight + @phoneBorderSize;
+
+    border-bottom: @phoneBorderSize @phoneBorderStyle @phoneBorderColor;
+	
+	.transition(all @sideTransition);
+	.translate(0, -@phoneMenuHeight);
+}
+
+#sidew {
+	position: relative;
+	height: @phoneMenuHeight + @phoneHeaderHeight - @phoneSideWrap * 2;
+    margin: @phoneSideWrap;
+}
+
+#sideh {
+	position: absolute;
+	top: @phoneMenuHeight - @phoneSideWrap;
+	left: 0;
+    
+    .header(@phoneHeaderHeight);
+	width: 100%;
+}
+
+#sidec {
+	position: absolute;
+	top: -@phoneBorderSize;
+	display: block;
+	
+	width: 100%;
+	height: @phoneMenuHeight - @phoneMenuMargin - @phoneSideWrap * 2;
+	margin-top: @phoneMenuMargin;
+	overflow: auto;
+	
+	.touch-scrolling(touch);
+}
+
+#handler {
+	position: fixed;
+	top: @phoneHandlerVMargin;
+	right: @phoneHandlerHMargin;
+	
+	display: block;
+	width: @phoneHandlerWidth;
+	height: @phoneHandlerHeight;
+
+    & when(@phoneHandlerAnimate = true) {
+	    .transition(all @sideTransition);
+    }
+    
+    & when(@phoneHandlerArrow = false) {
+        background: @phoneHandlerBackground;
+    }
+    
+    & when(@phoneHandlerArrow = true) {
+        .smartphone-arrow();
+    }
+    
+}
+
+#main {
+	margin: @phoneMainVMargin @phoneMainHMargin;
+	margin-top: @phoneHeaderHeight + @phoneMainVMargin + @phoneBorderSize;
+}
+
+
+
+
+
+
+
+/**
+* Both menu and content slides down when menu extends.
+* menu's header and nav invert their positions
+*/
+
+.side-open {
+
+	#side {
+		.translate(0, 0);
+	}
+	
+	#sideh {
+		top:0;
+	}
+	
+	#sidec {
+		top:@phoneHeaderHeight;
+	}
+	
+	#handler {
+		background:@phoneHandlerABackground;
+		
+		.rotate(180deg);
+        
+        & when(@phoneHandlerArrow = true) {
+            .smartphone-arrow();
+        }
+	}
+
+}
+
+
+
+
+
+
+

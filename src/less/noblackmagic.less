@@ -30,13 +30,13 @@
 @import "structure/small";
 
 /* common styles from smartphones to desktop */
-@media screen and (min-width: @breakpointSmartphones) {
+@media screen and (min-width: @breakpointPhone) {
     @import "structure/all";
 }
 
 /* smartphones portrait */
-@media screen and (min-width: @breakpointSmartphones) and (max-width: (@breakpointTablet - 1)) {
-	@import "structure/smartphones";
+@media screen and (min-width: @breakpointPhone) and (max-width: (@breakpointTablet - 1)) {
+	@import "structure/phone";
 }
 
 /* smartphones landscape, tablet portrait */
