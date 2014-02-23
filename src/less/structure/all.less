@@ -2,8 +2,21 @@
  * Common Styles
  */
 
+body {
+    & when(isurl(@mainBgPattern)) {
+        background-image: @mainBgPattern;
+    }
+}
+
 #side {
     color: @sideColor;
+    & when(isurl(@sideBgPattern)) {
+        background-image: @sideBgPattern;
+    }
+    & when(isurl(@sideBgImage)) {
+        background-image: @sideBgImage;
+        background-repeat: no-repeat;;
+    }
 }
 
 #sidec {
@@ -12,4 +25,11 @@
         width: auto;
     }
 
+}
+
+#main {
+    & when(isurl(@mainBgImage)) {
+        background-image: @mainBgImage;
+        background-repeat: no-repeat;;
+    }
 }
