@@ -10,12 +10,22 @@ body {
 
 #side {
     color: @sideColor;
+
     & when(isurl(@sideBgPattern)) {
         background-image: @sideBgPattern;
     }
+
     & when(isurl(@sideBgImage)) {
         background-image: @sideBgImage;
         background-repeat: no-repeat;;
+    }
+
+    & when(iscolor(@sideTextShadow)) {
+        text-shadow: 0 1px 0 @sideTextShadow;
+    }
+
+    & when(iscolor(@sideTextShadow) = false) {
+        text-shadow: @sideTextShadow;
     }
 }
 
