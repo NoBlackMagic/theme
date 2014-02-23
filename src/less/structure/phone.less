@@ -9,9 +9,9 @@
 	
 	display: block;
 	width: 100%;
-	height: @phoneMenuHeight + @phoneHeaderHeight + @phoneBorderSize;
+	height: @phoneMenuHeight + @phoneHeaderHeight + @phoneSideBorderSize;
 
-    border-bottom: @phoneBorderSize @phoneBorderStyle @phoneBorderColor;
+    border-bottom: @phoneSideBorderSize @phoneSideBorderStyle @phoneSideBorderColor;
 	
 	.transition(all @sideTransition);
 	.translate(0, -@phoneMenuHeight);
@@ -34,7 +34,7 @@
 
 #sidec {
 	position: absolute;
-	top: -@phoneBorderSize;
+	top: -@phoneSideBorderSize;
 	display: block;
 	
 	width: 100%;
@@ -70,7 +70,7 @@
 
 #main {
 	margin: @phoneMainVMargin @phoneMainHMargin;
-	margin-top: @phoneHeaderHeight + @phoneMainVMargin + @phoneBorderSize;
+	margin-top: @phoneHeaderHeight + @phoneMainVMargin + @phoneSideBorderSize;
 }
 
 
@@ -99,7 +99,7 @@
 	}
 	
 	#handler {
-		background:@phoneHandlerABackground;
+		background:@phoneHandlerActiveBackground;
 		
 		.rotate(180deg);
         

@@ -8,13 +8,13 @@
 	left: 0;
 	
 	display: block;
-	width: @tabletSidebarWidth;
+	width: @tabletSideWidth;
 	height: 100%;
 
-    border-right: @tabletBorderSize @tabletBorderStyle @tabletBorderColor;
+    border-right: @tabletSideBorderSize @tabletSideBorderStyle @tabletSideBorderColor;
 	
 	.transition(all @sideTransition);
-	.translate(-(@tabletSidebarWidth - @tabletSidebarOffset), 0);
+	.translate(-(@tabletSideWidth - @tabletSideOffset), 0);
 }
 
 #sidew {
@@ -23,7 +23,7 @@
 	display: block;
 	height: 100%;
 
-    margin: @tabletSidebarWrap;
+    margin: @tabletSideWrap;
 }
 
 #sideh {
@@ -42,7 +42,7 @@
 #handler {
 	position: fixed;
 	top: 0;
-	left: @tabletSidebarOffset;
+	left: @tabletSideOffset;
 	z-index: 1000;
 	
 	display: block;
@@ -67,7 +67,7 @@ html, body {
 #main {
 	z-index: 999;
 	margin: @tabletMainVMargin @tabletMainHMargin;
-	margin-left: @tabletHandlerWidth + @tabletMainHMargin + @tabletSidebarOffset;
+	margin-left: @tabletHandlerWidth + @tabletMainHMargin + @tabletSideOffset;
 	
 	.transition(all @sideTransition);
 	-webkit-backface-visibility: hidden;
@@ -82,7 +82,7 @@ html, body {
 	#handler {
 		background: @tabletHandlerABackground;
 		
-		.translate(@tabletSidebarWidth - @tabletSidebarOffset, 0);
+		.translate(@tabletSideWidth - @tabletSideOffset, 0);
         
         & when (@tabletHandlerArrow = true) {
             .tablet-arrow();
@@ -90,7 +90,7 @@ html, body {
 	}
 	
 	#main {
-		.translate((@tabletSidebarWidth - @tabletSidebarOffset) * @tabletMainParallax, 0);
+		.translate((@tabletSideWidth - @tabletSideOffset) * @tabletMainParallax, 0);
 	}
 	
 }

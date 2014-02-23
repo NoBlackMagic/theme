@@ -16,7 +16,6 @@
 @breakpointTablet: 480px; 
 @breakpointDesktop: 1024px; 
 
-// global - main area
 @mainBgColor: #fff; // applied to bootstrap's body
 
 // sidebar
@@ -39,9 +38,9 @@
 @phoneMenuMargin: 10px;
 @phoneSideWrap: @sideWrap;
 
-@phoneBorderSize: @sideBorderSize;
-@phoneBorderStyle: @sideBorderStyle;
-@phoneBorderColor: @sideBorderColor;
+@phoneSideBorderSize: @sideBorderSize;
+@phoneSideBorderStyle: @sideBorderStyle;
+@phoneSideBorderColor: @sideBorderColor;
 
 // handler size
 @phoneHandlerWidth: @phoneMenuHeight * .20;
@@ -52,8 +51,8 @@
 
 @phoneHandlerAnimate: false;
 @phoneHandlerArrow: true;
-@phoneHandlerBackground: @phoneBorderColor;
-@phoneHandlerABackground: @phoneHandlerBackground;
+@phoneHandlerBackground: @phoneSideBorderColor;
+@phoneHandlerActiveBackground: @phoneHandlerBackground;
 
 @phoneMainHMargin: 0;
 @phoneMainVMargin: 0;
@@ -64,17 +63,17 @@
  */
 
 @tabletHeaderHeight: @phoneHeaderHeight;
-@tabletSidebarWidth: @phoneMenuHeight;
-@tabletSidebarOffset: 10px;
 
-@tabletSidebarWrap: @phoneSideWrap;
+@tabletSideWidth: @phoneMenuHeight;
+@tabletSideOffset: 10px;
+@tabletSideWrap: @phoneSideWrap;
 
 
 @tabletMenuMargin: @phoneMenuMargin;
 
-@tabletBorderSize: @sideBorderSize;
-@tabletBorderStyle: @sideBorderStyle;
-@tabletBorderColor: @sideBgColor;
+@tabletSideBorderSize: @sideBorderSize;
+@tabletSideBorderStyle: @sideBorderStyle;
+@tabletSideBorderColor: @sideBgColor;
 
 @tabletHandlerArrow: true;
 @tabletHandlerWidth: @phoneHandlerWidth * 1.5;
@@ -93,18 +92,18 @@
  */
 
 @desktopHeaderHeight: @tabletHeaderHeight;
-@desktopSidebarWidth: @tabletSidebarWidth;
+@desktopSideWidth: @tabletSideWidth;
 
 @desktopMenuMargin: @tabletMenuMargin;
 
-@desktopSidebarWrap: @tabletSidebarWrap;
+@desktopSideWrap: @tabletSideWrap;
 
 @desktopMainHMargin: @tabletMainHMargin;
 @desktopMainVMargin: @tabletMainVMargin;
 
-@desktopBorderSize: @tabletBorderSize;
-@desktopBorderStyle: @tabletBorderStyle;
-@desktopBorderColor: @phoneBorderColor;
+@desktopSideBorderSize: @tabletSideBorderSize;
+@desktopSideBorderStyle: @tabletSideBorderStyle;
+@desktopSideBorderColor: @phoneSideBorderColor;
 
 
 
@@ -406,7 +405,7 @@
 // Large screen / wide desktop
 // Note: Deprecated @screen-lg and @screen-lg-desktop as of v3.0.1
 //@screen-lg:                  1200px;
-@screen-lg:                  (1200px + @desktopSidebarWidth / 2);
+@screen-lg:                  (1200px + @desktopSideWidth / 2);
 @screen-lg-min:              @screen-lg;
 @screen-lg-desktop:          @screen-lg-min;
 
