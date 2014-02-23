@@ -3,27 +3,30 @@
  */
 
 #side {
-	position: fixed;
-	top: 0;
-	left: 0;
-	
-	display: block;
-	width: @tabletSideWidth;
-	height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-    border-right: @tabletSideBorderSize @tabletSideBorderStyle @tabletSideBorderColor;
-	
-	.transition(all @sideTransition);
-	.translate(-(@tabletSideWidth - @tabletSideOffset), 0);
+    display: block;
+    width: @tabletSideWidth;
+    height: 100%;
+
+    & when(@tabletSideBorderSize > 0) {
+        border-right: @tabletSideBorderSize @tabletSideBorderStyle @tabletSideBorderColor;
+    }
+
+    .transition(all @sideTransition);
+    .translate(-(@tabletSideWidth - @tabletSideOffset), 0);
 }
 
 #sidew {
-	position: relative;
-	
-	display: block;
-	height: 100%;
+    position: relative;
+    display: block;
+    height: 100%;
 
-    margin: @tabletSidePadding;
+    & when ((@tabletSideMarginTop + @tabletSideMarginRight + @tabletSideMarginBottom + @tabletSideMarginLeft) > 0) {
+        margin: @tabletSideMarginTop @tabletSideMarginRight @tabletSideMarginBottom @tabletSideMarginLeft;
+    }
 }
 
 #sideh {
@@ -32,7 +35,7 @@
 
 #sidec {
     position: relative;
-    display:block;
+    display: block;
     height: @phoneMenuHeight;
     overflow: auto;
 
@@ -40,59 +43,62 @@
 }
 
 #handler {
-	position: fixed;
-	top: 0;
-	left: @tabletSideOffset;
-	z-index: 1000;
-	
-	display: block;
-	width: @tabletHandlerWidth;
-	height: 100%;
-	
-	background: @tabletHandlerBackground;
-	
-	.transition(all @sideTransition);
-	.translate(0, 0);
-    
+    position: fixed;
+    top: 0;
+    left: @tabletSideOffset;
+//    z-index: 1000;
+
+    display: block;
+    width: @tabletHandlerWidth;
+    height: 100%;
+
+    background: @tabletHandlerBackground;
+
+    .transition(all @sideTransition);
+    .translate(0, 0);
+
     & when (@tabletHandlerArrow = true) {
         .tablet-arrow();
     }
 }
 
 html, body {
-	width:100%;
-	overflow-x:hidden;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 #main {
-	z-index: 999;
-	margin: @tabletMainVMargin @tabletMainHMargin;
-	margin-left: @tabletHandlerWidth + @tabletMainHMargin + @tabletSideOffset;
-	
-	.transition(all @sideTransition);
-	-webkit-backface-visibility: hidden;
+
+    & when ((@tabletMainMarginTop + @tabletMainMarginRight + @tabletMainMarginBottom + @tabletMainMarginLeft) > 0) {
+        margin: @tabletMainMarginTop @tabletMainMarginRight @tabletMainMarginBottom @tabletMainMarginLeft;
+    }
+
+    margin-left: @tabletHandlerWidth + @tabletMainMarginLeft + @tabletSideOffset;
+
+    .transition(all @sideTransition);
+    -webkit-backface-visibility: hidden;
 }
 
 .side-open {
-	
-	#side {
-		.translate(0, 0);
-	}
-	
-	#handler {
-		background: @tabletHandlerABackground;
-		
-		.translate(@tabletSideWidth - @tabletSideOffset, 0);
-        
+
+    #side {
+        .translate(0, 0);
+    }
+
+    #handler {
+        background: @tabletHandlerABackground;
+
+        .translate(@tabletSideWidth - @tabletSideOffset, 0);
+
         & when (@tabletHandlerArrow = true) {
             .tablet-arrow();
         }
-	}
-	
-	#main {
-		.translate((@tabletSideWidth - @tabletSideOffset) * @tabletMainParallax, 0);
-	}
-	
+    }
+
+    #main {
+        .translate((@tabletSideWidth - @tabletSideOffset) * @tabletMainParallax, 0);
+    }
+
 }
 
 

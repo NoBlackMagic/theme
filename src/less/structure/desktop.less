@@ -2,26 +2,28 @@
  * NoBlackMagic | Desktop
  */
 
-
 #side {
-	position: fixed;
-	top: 0;
-	left: 0;
-	
-	display: block;
-	width: @desktopSideWidth;
-	height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-    border-right: @desktopSideBorderSize @desktopSideBorderStyle @desktopSideBorderColor;
+    display: block;
+    width: @desktopSideWidth;
+    height: 100%;
+
+    & when(@desktopSideBorderSize > 0) {
+        border-right: @desktopSideBorderSize @desktopSideBorderStyle @desktopSideBorderColor;
+    }
 }
 
 #sidew {
-	position: relative;
-	
-    display:block;
-	height: 100%;
+    position: relative;
+    display: block;
+    height: 100%;
 
-    margin: @desktopSidePadding;
+    & when ((@desktopSideMarginTop + @desktopSideMarginRight + @desktopSideMarginBottom + @desktopSideMarginLeft) > 0) {
+        margin: @desktopSideMarginTop @desktopSideMarginRight @desktopSideMarginBottom @desktopSideMarginLeft;
+    }
 }
 
 #sideh {
@@ -30,17 +32,19 @@
 
 #sidec {
     position: relative;
-    display:block;
+    display: block;
     height: @phoneMenuHeight;
     overflow: auto;
     margin-top: @desktopMenuMargin;
 }
 
 #handler {
-	display: none;
+    display: none;
 }
 
 #main {
-	margin: @desktopMainVMargin @desktopMainHMargin;
-	margin-left: @desktopSideWidth + @desktopMainHMargin;
+    & when ((@desktopMainMarginTop + @desktopMainMarginRight + @desktopMainMarginBottom + @desktopMainMarginLeft) > 0) {
+        margin: @desktopMainMarginTop @desktopMainMarginRight @desktopMainMarginBottom @desktopMainMarginLeft;
+    }
+    margin-left: @desktopSideWidth + @desktopMainMarginLeft;
 }

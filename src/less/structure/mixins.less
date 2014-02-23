@@ -126,9 +126,9 @@
     background: transparent;
     &:after {
         position: absolute;
-        top: @phoneHeaderHeight;
+        top: @phoneHeaderHeight / 2 - @tabletHandlerTriangleHeight;
         left: 0;
-        content: '';
+        content: ' ';
         .triangle-r(@sideBgColor, @tabletHandlerTriangleHeight);
     }
 }

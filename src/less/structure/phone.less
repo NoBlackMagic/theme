@@ -2,6 +2,9 @@
  * NoBlackMagic | Smartphones
  */
 
+@phoneSideMargins: @phoneSideMarginTop + @phoneSideMarginRight + @phoneSideMarginBottom + @phoneSideMarginLeft;
+@phoneSideVMargin: @phoneSideMarginTop + @phoneSideMarginBottom;
+
 #side {
 	position: fixed;
 	top: 0;
@@ -11,21 +14,25 @@
 	width: 100%;
 	height: @phoneMenuHeight + @phoneHeaderHeight + @phoneSideBorderSize;
 
-    border-bottom: @phoneSideBorderSize @phoneSideBorderStyle @phoneSideBorderColor;
+    & when(@phoneSideBorderSize > 0) {
+        border-bottom: @phoneSideBorderSize @phoneSideBorderStyle @phoneSideBorderColor;
+    }
 	
 	.transition(all @sideTransition);
-	.translate(0, -@phoneMenuHeight);
+	.translate(0, -(@phoneMenuHeight - @phoneSideVMargin));
 }
 
 #sidew {
 	position: relative;
-	height: @phoneMenuHeight + @phoneHeaderHeight - @phoneSidePadding * 2;
-    margin: @phoneSidePadding;
+
+    & when(@phoneSideMargins > 0) {
+      margin: @phoneSideMarginTop @phoneSideMarginRight @phoneSideMarginBottom @phoneSideMarginLeft;
+    }
 }
 
 #sideh {
 	position: absolute;
-	top: @phoneMenuHeight - @phoneSidePadding;
+	top: @phoneMenuHeight - @phoneSideVMargin;
 	left: 0;
     
     .header(@phoneHeaderHeight);
@@ -34,11 +41,11 @@
 
 #sidec {
 	position: absolute;
-	top: -@phoneSideBorderSize;
+	top: -(@phoneSideBorderSize + @phoneSideVMargin);
 	display: block;
 	
 	width: 100%;
-	height: @phoneMenuHeight - @phoneMenuMargin - @phoneSidePadding * 2;
+	height: @phoneMenuHeight - @phoneMenuMargin - @phoneSideVMargin * 2;
 	margin-top: @phoneMenuMargin;
 	overflow: auto;
 	
@@ -47,8 +54,8 @@
 
 #handler {
 	position: fixed;
-	top: @phoneHandlerVMargin;
-	right: @phoneHandlerHMargin;
+	top: @phoneHandlerVMargin + @phoneSideVMargin / 2;
+	right: @phoneHandlerHMargin + @phoneSideMarginRight;
 	
 	display: block;
 	width: @phoneHandlerWidth;
@@ -69,8 +76,10 @@
 }
 
 #main {
-	margin: @phoneMainVMargin @phoneMainHMargin;
-	margin-top: @phoneHeaderHeight + @phoneMainVMargin + @phoneSideBorderSize;
+    & when ((@phoneMainMarginTop + @phoneMainMarginRight + @phoneMainMarginBottom + @phoneMainMarginLeft) > 0) {
+        margin: @phoneMainMarginTop @phoneMainMarginRight @phoneMainMarginBottom @phoneMainMarginLeft;
+    }
+    margin-top: @phoneHeaderHeight + @phoneSideBorderSize + @phoneSideVMargin + @phoneMainMarginTop;
 }
 
 

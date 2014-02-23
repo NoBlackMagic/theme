@@ -17,13 +17,13 @@
 @breakpointDesktop: 1024px; 
 
 @mainBgColor: #fff; // applied to bootstrap's body
-
-// sidebar
 @sideBgColor: #eee;
 
-@sidePadding: 10px;
-
 @sideTransition: .25s ease-out;
+
+@sideMargin: 0; // internal margin
+@mainMargin: 0; // internal margin
+@menuMargin: 0; // apply only a margin-top
 
 @sideBorderSize: 10px;
 @sideBorderStyle: solid;
@@ -31,13 +31,13 @@
 
 
 /**
- * Smartphones
+ * Phone
+ * --------------------------
  */
 
 @phoneHeaderHeight: 60px;
 @phoneMenuHeight: 250px;
-@phoneMenuMargin: 10px;
-@phoneSidePadding: @sidePadding;
+@phoneMenuMargin: @menuMargin;
 
 @phoneSideBorderSize: @sideBorderSize;
 @phoneSideBorderStyle: @sideBorderStyle;
@@ -55,56 +55,77 @@
 @phoneHandlerBackground: @phoneSideBorderColor;
 @phoneHandlerActiveBackground: @phoneHandlerBackground;
 
-@phoneMainHMargin: 0;
-@phoneMainVMargin: 0;
+@phoneSideMarginTop: @sideMargin;
+@phoneSideMarginBottom: @phoneSideMarginTop;
+@phoneSideMarginLeft: @sideMargin;
+@phoneSideMarginRight: @phoneSideMarginLeft;
+
+@phoneMainMarginTop: @sideBorderSize;
+@phoneMainMarginBottom: @phoneMainMarginTop;
+@phoneMainMarginLeft: @mainMargin;
+@phoneMainMarginRight: @phoneMainMarginLeft;
 
 
 /**
  * Tablet
+ * --------------------------
  */
-
-@tabletHeaderHeight: @phoneHeaderHeight;
 
 @tabletSideWidth: @phoneMenuHeight;
 @tabletSideOffset: 10px;
-@tabletSidePadding: @phoneSidePadding;
 
+@tabletHeaderHeight: @phoneHeaderHeight;
+@tabletMenuMargin: @menuMargin;
 
-@tabletMenuMargin: @phoneMenuMargin;
+// sliding difference while opening the sidebar
+// 1 = no effect
+@tabletMainParallax: .85;
 
 @tabletSideBorderSize: @sideBorderSize;
 @tabletSideBorderStyle: @sideBorderStyle;
 @tabletSideBorderColor: @sideBgColor;
 
 @tabletHandlerArrow: true;
-@tabletHandlerWidth: @phoneHandlerWidth * 1.5;
+@tabletHandlerWidth: @phoneHandlerWidth * .5;
 @tabletHandlerBackground: @phoneHandlerBackground;
 @tabletHandlerABackground: @phoneHandlerBackground;
-@tabletHandlerTriangleHeight: @tabletHandlerWidth * .85;
+@tabletHandlerTriangleHeight: @tabletHandlerWidth * .75;
 
-@tabletMainHMargin: @phoneMainHMargin;
-@tabletMainVMargin: @phoneMainVMargin;
+@tabletSideMarginTop: @sideMargin;
+@tabletSideMarginBottom: @tabletSideMarginTop;
+@tabletSideMarginLeft: @sideMargin;
+@tabletSideMarginRight: @tabletSideMarginLeft;
 
-// sliding difference while opening the sidebar
-@tabletMainParallax: .75;
+@tabletMainMarginTop: @mainMargin;
+@tabletMainMarginBottom: @tabletMainMarginTop;
+@tabletMainMarginLeft: @mainMargin;
+@tabletMainMarginRight: @tabletMainMarginLeft;
+
+
 
 /**
  * Desktop
+ * --------------------------
  */
 
-@desktopHeaderHeight: @tabletHeaderHeight;
 @desktopSideWidth: @tabletSideWidth;
 
-@desktopMenuMargin: @tabletMenuMargin;
-
-@desktopSidePadding: @tabletSidePadding;
-
-@desktopMainHMargin: @tabletMainHMargin;
-@desktopMainVMargin: @tabletMainVMargin;
+@desktopHeaderHeight: @tabletHeaderHeight;
+@desktopMenuMargin: @menuMargin;
 
 @desktopSideBorderSize: @tabletSideBorderSize;
 @desktopSideBorderStyle: @tabletSideBorderStyle;
 @desktopSideBorderColor: @phoneSideBorderColor;
+
+@desktopSideMarginTop: @sideMargin;
+@desktopSideMarginBottom: @desktopSideMarginTop;
+@desktopSideMarginLeft: @sideMargin;
+@desktopSideMarginRight: @desktopSideMarginLeft;
+
+@desktopMainMarginTop: @mainMargin;
+@desktopMainMarginBottom: @desktopMainMarginTop;
+@desktopMainMarginLeft: @mainMargin;
+@desktopMainMarginRight: @desktopMainMarginLeft;
 
 
 
