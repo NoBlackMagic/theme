@@ -9,18 +9,19 @@
 // ------------------------------------------- //
 
 /**
-* General
-*/
+ * General
+ */
 
 @breakpointSmartphones: 320px; 
 @breakpointTablet: 480px; 
 @breakpointDesktop: 1024px; 
 
 // global - main area
-@bgColor: #fff;
+@bgColor: #fff; // applied to bootstrap's body
 
 // sidebar
 @sideBgColor: #eee;
+@sideWrap: 10px;
 
 @sideTransition: .25s ease-out;
 
@@ -35,8 +36,8 @@
 
 @smartphoneHeaderHeight: 60px;
 @smartphoneMenuHeight: 250px;
-
 @smartphoneMenuMargin: 10px;
+@smartphoneSideWrap: @sideWrap;
 
 @smartphoneBorderSize: @sideBorderSize;
 @smartphoneBorderStyle: @sideBorderStyle;
@@ -66,6 +67,8 @@
 @tabletSidebarWidth: @smartphoneMenuHeight;
 @tabletSidebarOffset: 10px;
 
+@tabletSidebarWrap: @smartphoneSideWrap;
+
 
 @tabletMenuMargin: @smartphoneMenuMargin;
 
@@ -93,6 +96,8 @@
 @desktopSidebarWidth: @tabletSidebarWidth;
 
 @desktopMenuMargin: @tabletMenuMargin;
+
+@desktopSidebarWrap: @tabletSidebarWrap;
 
 @desktopMainHMargin: @tabletMainHMargin;
 @desktopMainVMargin: @tabletMainVMargin;

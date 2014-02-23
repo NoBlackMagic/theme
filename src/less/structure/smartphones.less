@@ -19,12 +19,13 @@
 
 #sidew {
 	position: relative;
-	height: @smartphoneMenuHeight + @smartphoneHeaderHeight;
+	height: @smartphoneMenuHeight + @smartphoneHeaderHeight - @smartphoneSideWrap * 2;
+    margin: @smartphoneSideWrap;
 }
 
 #sideh {
 	position: absolute;
-	top: @smartphoneMenuHeight;
+	top: @smartphoneMenuHeight - @smartphoneSideWrap;
 	left: 0;
     
     .header(@smartphoneHeaderHeight);
@@ -37,7 +38,7 @@
 	display: block;
 	
 	width: 100%;
-	height: @smartphoneMenuHeight - @smartphoneMenuMargin;
+	height: @smartphoneMenuHeight - @smartphoneMenuMargin - @smartphoneSideWrap * 2;
 	margin-top: @smartphoneMenuMargin;
 	overflow: auto;
 	

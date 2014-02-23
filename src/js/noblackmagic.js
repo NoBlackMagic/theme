@@ -76,6 +76,7 @@
 // ----------------------------- //
 	
     var side = document.querySelector('#side');
+	var sidew = document.querySelector('#sidew');
     var sideh = document.querySelector('#sideh');
     var sidec = document.querySelector('#sidec');
     var cacheSideHeight = 0;
@@ -94,7 +95,9 @@
     function updateMenuHeight() {
         if (cacheSideHeight != side.offsetHeight) {
             cacheSideHeight = side.offsetHeight;
-            sidec.style.height = (cacheSideHeight - sideh.offsetHeight - side.VBorderSize() - sidec.VMarginSize()) + 'px';
+			var borders = side.VBorderSize() + sidew.VBorderSize() + sideh.VBorderSize() + sidec.VBorderSize();
+			var margins = sidew.VMarginSize() + sideh.VMarginSize() + sidec.VMarginSize();
+            sidec.style.height = (cacheSideHeight - sideh.offsetHeight - borders - margins) + 'px';
             sidecIScroll.refresh();
         }
     }
